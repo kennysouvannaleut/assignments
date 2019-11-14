@@ -1,11 +1,12 @@
 var shopper = {
-    name = "kenny",
-    age = 20,
-    
-function () {
-    return  {
-        grocerycart: "",
+    name: "kenny",
+    cash: 5,
+    isRich: (this.cash >= 5),
+    items: ["shoes", "shirt", "pants"],
+    grocerycart: function() {
+        return this.items
     }
-}
     
 }
+
+console.log(shopper.grocerycart())
