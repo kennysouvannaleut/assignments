@@ -1,0 +1,50 @@
+
+h1 {
+    color: green;
+    font-family: georgia;
+    text-align: center;
+}
+
+h2 {
+    font-family: georgia;
+    text-align: center;
+}
+
+p {
+    line-height: 25px;
+}
+
+p a {
+    text-decoration: none;
+}
+
+strong {
+    font-weight: normal;
+}
+
+.caps-text {
+    text-transform: uppercase;   
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+
+}
+
+a:hover{
+    text-decoration: underline;
+    
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+
+img {
+    float: left;
+}
