@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box; 
+    font-size: 0px;
+ }
+
+.france {
+    border: solid lightblue 2px;
+    background: blue;
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    left: 10%;
+    right: 10%;
+    position: relative;
+}
+
+.france1 {
+    border: solid lightblue 2px;
+    background: white;
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    left: 10%;
+    right: 10%;
+    position: relative;
+
+}
+
+.france2 {
+    border: solid lightblue 2px;
+    background: red;
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    left: 10%;
+    right: 10%;
+    position: relative;
+}
+
+.germany {
+    border: solid lightblue 2px;
+    background: black;
+    display: inline-block;
+    width: 90%;
+    height: 30%;
+    left: 10%;
+    right: 10%;
+    position: relative;
+    margin: 10px;
+    margin-left: -1px;
+}
+
+.germany1 {
+    border: solid lightblue 2px;
+    background: red;
+    display: inline-block;
+    width: 90%;
+    height: 30%;
+    left: 10%;
+    right: 10%;
+    position: relative;
+    margin: -10px;
+    margin-left: -1px;
+}
+
+.germany2 {
+    border: solid lightblue 2px;
+    background: yellow;
+    display: inline-block;
+    width: 90%;
+    height: 30%;
+    left: 10%;
+    right: 10%;
+    position: relative;
+}
+
+.madagascar {
+    border: solid lightblue 2px;
+    background: red;
+    display: inline-block;
+    width: 90%;
+    height: 30%;
+    left: 10%;
+    right: 10%;
+    position: relative;
+    margin: 10px;
+    margin-left: -1px;   
+}
+
+.madagascar1 {
+    border: solid lightblue 2px;
+    background: green;
+    display: inline-block;
+    width: 90%;
+    height: 30%;
+    left: 10%;
+    right: 10%;
+    position: relative;
+    margin: -10px;
+    margin-left: -1px;   
+}
+
+.switzerland {
+    border: solid lightblue 2px;
+    background: red;
+    display: inline-block;
+    width: 90%;
+    height: 90%;
+    left: 10%;
+    right: 10%;
+    position: relative;
+    margin: 20px;
+    margin-left: -1px;   
+}
+
+.switzerland1 {
+    border: solid lightblue 2px;
+    background: white;
+    display: inline-block;
+    width: 40px;
+    top: 500px;
+    bottom: 100px;
+    height: 100px;
+    left: 150px;
+    right: 50px;
+    position: absolute;
+    margin-left: -1px;
+    margin: 30px;
+}
+
+/* .switzerland2 {
+    border: solid lightblue 2px;
+    background: white;
+    display: inline-block;
+    width: 3%;
+    height: 10;
+    left: 10%;
+    right: 10%;
+    position: absolute;
+    margin: 20px;
+    margin-left: -1px;
+} */
+
+/* .switzerland3 {
+    border: solid lightblue 2px;
+    background:red;
+    display: inline-block;
+    width: 50%;
+    height: 30%;
+    left: 10%;
+    right: 10%;
+    position: relative;
+    margin: 20px;
+    margin-bottom: -10px;
+    margin-left: -1px;   
+}
+
+.switzerland4 {
+    border: solid lightblue 2px;
+    background: red;
+    display: inline-block;
+    width: 50%;
+    height: 30%;
+    left: 10%;
+    right: 10%;
+    position: relative;
+    margin: 20px;
+    margin-bottom: -10px;
+    margin-left: -1px;   
+}
+ */

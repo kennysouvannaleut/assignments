@@ -49,9 +49,6 @@ console.log(newStrConcat)
 // // So if n were 6, the sum of 1+1+2+3+5+8 would be 20
 // // Don't hardcode the sequence.
 
-// // Write a function that accepts a string as a parameter. Return the most frequently occuring letter in that string. 
-// // ( White spaces count as a letter )
-
 var fib = function(n) 
 {
   if (n === 1) 
@@ -67,3 +64,35 @@ var fib = function(n)
 };
 
  console.log(fib(6))
+
+ // // Write a function that accepts a string as a parameter. Return the most frequently occuring letter in that string. 
+// // ( White spaces count as a letter )
+
+function getMax (str) {
+    var max = 0
+    var maxChar = '';
+    var array = str.split('')
+    console.log(array)
+    for (i = 0; i < array.length; i++) {
+        var char = array[i]
+        if(str.split(char).length > max) {
+            max = str.split(char).length;
+            maxChar = char;
+        }
+    }
+    console.log(maxChar);
+};
+getMax("Heello")
+
+// function letterCount(str) {
+//     let count = 0;
+//     let results = []
+//     let newArr = str.split('')
+//     let sorted = newArr.sort()
+//     for (let i = 0; i < newArr.length - 1; i++) {
+//       if(sorted[i + 1] === sorted[i])
+//       results.push(sorted[i])
+//     }
+//     console.log(results)
+//   }
+//   letterCount('a;sdkfd')
