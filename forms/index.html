@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="result"></div>>
+    <!-- <form action="" name="userForm"> -->
+    <!-- <label for="useremail or email"> Email:</label> -->
+    <!-- <input type="text" name=""> -->
+    <form action="" name='add'>
+        <!-- <input type="text" name="email"> -->
+        <br>
+        <!-- <input type="password">Password:</label> -->
+        <!-- <label type="Password" name="password"></label> -->
+        <!-- <div class="">question-container</div> -->
+        <!-- <h4>What is your favorite color?</h4> -->
+        <!-- <label for="green></label> -->
+        <!-- <input type="radio" name="favColor" value="green"> -->
+        <input type="button" value="0" name="display">
+        <input type="button" value="1" name="display">
+        <input type="button" value="2" name="display">
+        <input type="button" value="3" name="display">
+        <input type="button" value="(+)" name="display">
+        <!-- <button> Submit </button> -->
+        <button>...</button>
+        <!-- <div id="list"></div> -->
+    </form>
+    <form action="" name='subtract'>
+        <input type="button" value="4" name="display">
+        <input type="button" value="5" name="display">
+        <input type="button" value="6" name="display">
+        <input type="button" value="7" name="display">
+        <input type="button" value="(-)" name="display">
+        <button>...</button>
+    </form>
+    <form action="" name='multiply'>
+        <input type="button" value="8" name="display">
+        <input type="button" value="9" name="display">
+        <input type="button" value="(=)" name="solve">
+        <input type="button" value="CLR" name="clr">
+        <input type="button" value="(*)" name="display">
+        <button>...</button>
+        </div>
+        <br>
+        <!-- <button>Submit</button> -->
+</body>
+<script src="app.js"></script>
+
+</html>
+
+var userList = document.createElement('')
+
+<!-- Access the form via the form's name attrubute -->
+
+<!-- Add event listener to Form -->
+<!-- Submit -->
+userForm.addEventListener('submit', function(e) {
+<!-- Note the submit event causes a page refresh -->
+e.preventDefault()
+<!-- Prevent the refresh default -->
+
+<!-- Create userCard -->
+<!--  -->
+
+<!-- Access the inmput according to name -->
+<!-- Use dot notation like an object -->
+var emailInput = userForm.email
+<!--     console.log(emailInput.value)
+    console.log('Submitted')
+ -->
+
+var userCard = document.createElement('div')
+<!-- Add a class to the div -->
+<!-- userCard.className = 'user-card' -->
+userCard.classList.add(userCard)
+
+<!-- Create an h4 for the username/email -->
+var userNameAndPassword = document.createElement('div')
+
+
+<!-- Add the input to the text content -->
+userCard.textContent = 'User Email:" + emailInput.value
+
+<!-- Append userNameAndPassword to the userCard -->
+userList.appendChild(userNameAndPassword)
+
+})
+
+<!-- Handlie Password in Field  -->
+<!-- Show in console -->
+<!-- console.log(userForm.password.value) -->
+
+<!-- Handle Questions -->
+<!-- Get value of selected items -->
+<!-- The selected radio assoiciates the value with its name -->
+<!-- All the radio have the name favColor -->
+<!-- The selected is recorde4d upon submit -->
+var favColorResponse = document.createElement('p')
+var favColor = userForm.favColor.value
+favColorResponse.textContent = "Favorite Color: " + favColor.value
+
+<!-- console.log(favColor.value) -->
+
+<!-- P Tag is complete -->
+<!-- Append P tag to userCard -->
+userCard.appendChild(favColorResponse)
+<!-- console.log(favColor) -->
+
+
+<!-- Handle Favorite Book -->
+<!-- Check Boxes -->
+
+<!-- Create element to display results -->
+var favBook = document.createElement('h6')
+
+<!-- userForm.favBook returns a nodeList -->
+<!-- Containing all of the checkbozes under that name -->
+
+var favBookArray - userForm.favBook
+
+<!-- Create an Array of the checked boxes -->
+var selectedBox = []
+
+<!-- Use an for loop to kook at each item in the array -->
+for(var i = 0; i < favBookArray.length; i++) {
+    <!-- console.log(favBook[i]) -->
+    <!-- console.dir(favBookArray[i]) -->
+    <!-- console.dir(favBookArray[i].checked) -->
+    <!-- console.dir(favBookArray[i].value) -->
+    <!-- if(favBookArray[i].checked){
+        selectedBooks.push(favBooksArray[i].value)
+}
+} -->
+
+<!-- Each book was added to the selectedBooks Array -->
+<!-- Create a string that display the favorite -->
+
+var displayFavBooks = "Favorite Books:" + selectedBooks
+<!-- console.log(displayFavoriteBooks) -->
+favBookTag.textContent = displayFavBooks;
+
+<!-- Append tag to the userCard -->
+userCard.appendChild(favBookTag)
+
+<!-- Lastly add the userCard to the DOM under -->
+<!-- Under user List -->
+userList.appendChild(userList)
+
+
+
+<!-- Access the input via the input's name attribute -->

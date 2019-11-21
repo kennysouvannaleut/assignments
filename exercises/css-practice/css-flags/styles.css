@@ -1,8 +1,9 @@
-* {
+/* * {
     box-sizing: border-box; 
     font-size: 0px;
- }
-
+ } */
+ 
+/* 
 .france {
     border: solid lightblue 2px;
     background: blue;
@@ -35,9 +36,9 @@
     left: 10%;
     right: 10%;
     position: relative;
-}
+} */
 
-.germany {
+/* .germany {
     border: solid lightblue 2px;
     background: black;
     display: inline-block;
@@ -73,8 +74,9 @@
     right: 10%;
     position: relative;
 }
-
-.madagascar {
+ */
+ 
+/* .madagascar {
     border: solid lightblue 2px;
     background: red;
     display: inline-block;
@@ -98,9 +100,9 @@
     position: relative;
     margin: -10px;
     margin-left: -1px;   
-}
+} */
 
-.switzerland {
+/* .switzerland {
     border: solid lightblue 2px;
     background: red;
     display: inline-block;
@@ -127,7 +129,7 @@
     margin-left: -1px;
     margin: 30px;
 }
-
+ */
 /* .switzerland2 {
     border: solid lightblue 2px;
     background: white;
