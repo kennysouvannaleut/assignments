@@ -1,173 +1,251 @@
-/* * {
-    box-sizing: border-box; 
-    font-size: 0px;
- } */
- 
-/* 
-.france {
-    border: solid lightblue 2px;
-    background: blue;
-    display: inline-block;
-    width: 30%;
-    height: 100%;
-    left: 10%;
-    right: 10%;
-    position: relative;
+* {
+    box-sizing: border-box;
+    font-size: 0;
 }
 
-.france1 {
-    border: solid lightblue 2px;
-    background: white;
-    display: inline-block;
-    width: 30%;
-    height: 100%;
-    left: 10%;
-    right: 10%;
-    position: relative;
-
+body {
+    background-color: lightblue;
 }
 
-.france2 {
-    border: solid lightblue 2px;
-    background: red;
-    display: inline-block;
-    width: 30%;
-    height: 100%;
-    left: 10%;
-    right: 10%;
-    position: relative;
-} */
-
-/* .germany {
-    border: solid lightblue 2px;
-    background: black;
-    display: inline-block;
-    width: 90%;
-    height: 30%;
-    left: 10%;
-    right: 10%;
-    position: relative;
-    margin: 10px;
-    margin-left: -1px;
-}
-
-.germany1 {
-    border: solid lightblue 2px;
-    background: red;
-    display: inline-block;
-    width: 90%;
-    height: 30%;
-    left: 10%;
-    right: 10%;
-    position: relative;
-    margin: -10px;
-    margin-left: -1px;
-}
-
-.germany2 {
-    border: solid lightblue 2px;
-    background: yellow;
-    display: inline-block;
-    width: 90%;
-    height: 30%;
-    left: 10%;
-    right: 10%;
-    position: relative;
-}
- */
- 
-/* .madagascar {
-    border: solid lightblue 2px;
-    background: red;
-    display: inline-block;
-    width: 90%;
-    height: 30%;
-    left: 10%;
-    right: 10%;
-    position: relative;
-    margin: 10px;
-    margin-left: -1px;   
-}
-
-.madagascar1 {
-    border: solid lightblue 2px;
-    background: green;
-    display: inline-block;
-    width: 90%;
-    height: 30%;
-    left: 10%;
-    right: 10%;
-    position: relative;
-    margin: -10px;
-    margin-left: -1px;   
-} */
-
-/* .switzerland {
-    border: solid lightblue 2px;
-    background: red;
-    display: inline-block;
-    width: 90%;
-    height: 90%;
-    left: 10%;
-    right: 10%;
+.france-flag {
+    padding: 250px;
+    background-color: white;
     position: relative;
     margin: 20px;
-    margin-left: -1px;   
 }
 
-.switzerland1 {
-    border: solid lightblue 2px;
-    background: white;
-    display: inline-block;
-    width: 40px;
-    top: 500px;
-    bottom: 100px;
-    height: 100px;
-    left: 150px;
-    right: 50px;
+.france-flag:before {
+    content: "";
+    width: 34%;
+    height: 100%;
     position: absolute;
-    margin-left: -1px;
-    margin: 30px;
+    background-color: darkblue;
+    top: 0;
+    left: 0;
 }
- */
-/* .switzerland2 {
-    border: solid lightblue 2px;
-    background: white;
-    display: inline-block;
-    width: 3%;
-    height: 10;
-    left: 10%;
-    right: 10%;
+
+.france-flag:after {
+    content: "";
+    width: 34%;
+    height: 100%;
     position: absolute;
+    background-color: red;
+    bottom: 0;
+    right: 0;
+
+}
+
+.germany-flag {
+    padding: 250px;
+    background-color: red;
+    position: relative;
     margin: 20px;
-    margin-left: -1px;
+}
+
+.germany-flag:before {
+    content: "";
+    width: 100%;
+    height: 34%;
+    position: absolute;
+    background-color: black;
+    top: 0;
+    left: 0;
+}
+
+.germany-flag:after {
+    content: "";
+    width: 100%;
+    height: 34%;
+    position: absolute;
+    background-color: yellow;
+    bottom: 0;
+    left: 0;
+}
+
+.madagascar-flag {
+    padding: 250px;
+    background-color: white;
+    position: relative;
+    margin: 20px;
+
+}
+
+.madagascar-flag:before {
+    content: "";
+    width: 75%;
+    height: 250px;
+    position: absolute;
+    background-color: red;
+    top: 0;
+    right: 0;
+}
+
+.madagascar-flag:after {
+    content: "";
+    width: 75%;
+    height: 250px;
+    position: absolute;
+    background-color: green;
+    bottom: 0;
+    right: 0;   
+}
+
+.switzerland-flag {
+    padding: 250px;
+    background-color: red;
+    position: relative;
+    margin: 20px;
+}
+
+.switzerland-flag:before {
+    content: "";
+    width: 190px;
+    height: 15%;
+    position: absolute;
+    background-color: white;
+    top: 190px;
+    left: 250px;
+    bottom: 2px;
+
+} 
+
+.switzerland-flag:before {
+    content: "";
+    width: 50%;
+    height: 15%;
+    position: absolute;
+    background-color: white;
+    top: 200px;
+    left: 180px;
+} 
+
+.switzerland-flag:after {
+    content: "";
+    width: 13%;
+    height: 51%;
+    position: absolute;
+    background-color: white;
+    left: 340px;
+    top: 116px;
+}
+ 
+.sweden-flag {
+        padding: 250px;
+        background-color: skyblue;
+        position: relative;
+        margin: 20px;
+}
+
+.sweden-flag:before {
+    content: "";
+    width: 100%;
+    height: 15%;
+    position: absolute;
+    background-color: yellow;
+    display: inline-block;
+    left: 0;
+    top: 175px;
+}
+/* border-width: 30px 50px 50px 50px; */
+
+.sweden-flag:after {
+    content: "";
+    width: 10%;
+    height: 100%;
+    position: absolute;
+    background-color: yellow;
+    display: inline-block;
+    top: 1px;
+}
+
+.gambia-flag {
+    padding: 250px;
+    background-color: green;
+    position: relative;
+    margin: 20px;
+}
+
+.gambia-flag:before {
+    content: "";
+    width: 100%;
+    height: 34%;
+    position: absolute;
+    background-color: darkblue;
+    top: 140px;
+    right: 0;
+    left: 0;
+    border-bottom: solid white 40px;
+}
+
+.gambia-flag:after {
+    content: "";
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    background-color: red;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-bottom: solid white 40px;
+}
+
+.japan-flag {
+    padding: 250px;
+    background-color: white;
+    position: relative;
+    margin: 20px;
+}
+
+.japan-flag:before {
+    content: "";
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    background-color: red;
+    top: 100px;
+    left: 300px;
+    border-radius: 150px;
+}
+
+.greece-flag {
+    padding: 250px;
+    background-color: white;
+    position: relative;
+    margin: 20px;
+}
+
+.greece-flag:before {
+    content: "";
+    width: 100%;
+    height: 34%;
+    position: absolute;
+    background-color: darkblue;
+    left: 0;
+}
+
+/* .netherlands-flag {
+    padding: 250px;
+    background-color: white;
+    position: relative;
+    margin: 20px;
+}
+
+.netherlands-flag:before {
+    content: "";
+    width: 100%;
+    height: 30%;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.netherlands-flag:after {
+    content: "";
+    width: 100%;
+    height: 30%;
+    background-color: blue;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 } */
-
-/* .switzerland3 {
-    border: solid lightblue 2px;
-    background:red;
-    display: inline-block;
-    width: 50%;
-    height: 30%;
-    left: 10%;
-    right: 10%;
-    position: relative;
-    margin: 20px;
-    margin-bottom: -10px;
-    margin-left: -1px;   
-}
-
-.switzerland4 {
-    border: solid lightblue 2px;
-    background: red;
-    display: inline-block;
-    width: 50%;
-    height: 30%;
-    left: 10%;
-    right: 10%;
-    position: relative;
-    margin: 20px;
-    margin-bottom: -10px;
-    margin-left: -1px;   
-}
- */
