@@ -1,64 +1,82 @@
 
 body {
-    font-family: 'Times New Roman';
-    font-size: 14px;
+    font-family: cambria;
     color: black;
     background: white;
+    margin: 15pt;
+    border: gray solid 2pt;
 }
 
 header {
-    font-family: Arial;
-    font-weight: 900;
-    font-size: 80px;
+    font-size: 50pt;
     text-transform: uppercase;
-    display: inline-block;
-    line-height: 72px;
-    margin-bottom: 20px;
+    background: lightgray;
+    color: solid white;
+    margin-bottom: 20pt;
+    text-align: center;
+    border-bottom: gray solid 2pt;
 }
 
-img {
-    background: darkgray;
-    background-position: right;
-    display: inline-block;
+.subhead {
+    text-align: center;
+    color: royalblue;
+    font-size: 11pt;
 }
 
 h1 {
-    color: red;
-    font-family: 'Gill Sans';
-    font: large;
-    font-style: italic;
-    display: inline-block;
-    text-decoration: solid;
+    font-size: 11pt;
+    font-style: normal;
+    text-align: left;
+    margin-left: 20pt;
+    margin-right: 20pt;
+    margin-bottom: 5pt;
+    color: black;
 }
 
-.first-change {
-    font: 7pt;
-    font-display: initial;
-    font-family: 'Times New Roman';
-    font-size: larger;
-    display: inline;
+h2 {
+    font-size: 11pt;
+    text-align: left;
+    margin-left: 20pt;
+    margin-right: 20pt;
+    margin-bottom: 5pt;
+    color: black;
 }
 
-.second-change {
-    font-family: 'Trebuchet MS';
-    font-display: inherit;
-    font-size: 12pt;
-    display: inline-block;
+h3 {
+    font-size: 11pt;
+    font-style: normal;
+    text-align: left;
+    margin-left: 20pt;
+    margin-right: 20pt;
+    margin-bottom: 5pt;
+    color: black;
 }
 
-.third-page {
-    font: bold;
-    color: deepskyblue;
-    border: solid;
-    padding: 15px;
-}
-
-p {
+h4 {
     font-size: 10pt;
-    display: block;
-    text-decoration: darkgreen;
-    padding: 8px;
-    float: left;
+    font: bold;
+    color: red;
+    border-top:  red solid 2pt;
+    text-align: center;
+    margin-bottom: -10pt;
+    margin-top: 5pt;
+}
+
+h5 {
+    font-size: 10pt;
+    text-align: center;
+    color: red;
+    border-top: solid red 1px;
+    margin-top: 4pt;
+    margin-bottom: 0;
+}
+
+h6 {
+    font-size: 10pt;
+    text-align: center;
+    color: red;
+    border-top: solid red 1px;
+    margin-bottom: 5pt;
 }
 
 span {

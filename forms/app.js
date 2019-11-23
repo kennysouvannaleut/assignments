@@ -23,11 +23,11 @@
 // subtract.addEventListener('submit', function(e) { } );
 // multiply.addEventListener('submit', function(e) { } );
 
-function myFunction () {
-    let x = document.getElementById('result').value
-    let y = eval(x)
-    document.getElementById('result').value = y
-}
+// function myFunction () {
+//     let x = document.getElementById('result').value
+//     let y = eval(x)
+//     document.getElementById('result').value = y
+// }
 
 //     document.getElementById('result').value = y;
 

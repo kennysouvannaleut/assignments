@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Form</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <h1>BETA AIRLINES</h1>
+    <form action=" " name="userForm">
+        <label for="firstName">FIRST NAME:</label>
+        <input type="text" name="firstName" /><br><br>
+        <label for="lastName">LAST NAME:</label>
+        <input type="text" name="lastName" /><br><br>
+        <div id="age"></div>
+        <label for="age">AGE:</label>
+        <input type="number" name="age" /><br><br>
+        <div class="gender"></div>
+        <label for="gender">GENDER:</label>
+        <input type="radio" name="gender" value="male" />
+        <label for="male">Male</label>
+        <input type="radio" name="gender" value="female" />
+        <label for="female">Female</label>
+        <input type="radio" name="gender" value="unknown" />
+        <label for="unknown">Unknown</label><br><br>
+        <div name="designation"></div>
+        <label for="designation">DESIGNATION:</label>
+        <select name="designation">
+            <option value=" "></option>
+            <option value="nowhere">Nowhere</option>
+            <option value="faraway">Far Away</option>
+            <option value="getaway">Get Away</option>
+        </select><br><br>
+        <div class="diet"></div>
+        <label for="diet">DIET RESTRICTIONS:</label>
+        <input type="checkbox" name="diet" value="vegetarian" />
+        <label for="vegetarian">Vegetarian</label>
+        <input type="checkbox" name="diet" value="kosher" />
+        <label for="kosher">Kosher</label>
+        <input type="checkbox" name="diet" value="lactoseFree" />
+        <label for="lactoseFree">Lactose Free</label><br><br>
+        <button>SUBMIT</button>
+    </form>
+    <script src="app.js"></script>
+</body>
+
+</html>
