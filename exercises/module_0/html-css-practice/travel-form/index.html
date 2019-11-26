@@ -2,70 +2,50 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="XA-UA-Compatible" content="ie-edge">
-    <meta http-equiv="Content-Script-Type" content="text/html">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>Travel Form</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="XA-UA-Compatible" content="ie-edge">
+	<meta http-equiv="Content-Script-Type" content="text/html">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>Travel Form</title>
 </head>
 
 <body>
-    <h1>Beta Airlines</h1>
-    	<form action="" name="submitForm" method="POST">
-    <fieldset>
-		<legend>Personal Information</legend>
-		First Name: <input name="firstname" type="text" id="firstname"><br>
-		Last Name: <input name="lastname" type="text" id="lastname"><br>
-		Age: <input name="age" type="number" id="age"><br>
-		Gender:<br>
-		<input name="gender" 
-			   type="radio" 
-			   id="male" 
-			   value="Male"> Male<br>
-		<input name="gender"
-			   type="radio" 
-			   id="female" 
-			   value="Female"> Female<br>
-		<input name="gender" 
-			   type="radio"
-			   id="other" 
-			   value="Other"> Other<br>
-	</fieldset>
-         <input type="submit" value="Send"> <input type="reset">
-         <input type="button" value="Click Here" onclick="verify()">
-		<button name="submit" type="submit" value="submit"></button>
-		<button name="reset"  type="reset"></button><br>
-        Designation: 
-        	<select name="designation">
-				<option label="France" value="France"> France</option>
-				<option label="UK" value="UK"> United Kingdom</option>
-				<option label="Japan" value="Japan"> Japan</option>
-				<option label="Egypt" value="Egypt"> Egypt</option>
-				<option label="Denmark" value="Denmark"> Denmark</option>
-			</select>
-            <input type="submit" value="Send"> <input type="reset"><br>
-        Diet Restrictions:
-     	<input name="diet" 
-			   type="checkbox"
-			   id="all" 
-			   value="all"/>Select All
-		<input name="diet"
-			   type="checkbox" 
-			   id="vegetarian" 
-			   value="vegetarian"/>Vegetarian
-		<input name="diet"
-			   type="checkbox" 
-			   id="kosher" 
-			   value="kosher"/>Kosher
-		<input name="diet"
-			   type="checkbox" 
-			   id="lactose" 
-			   value="lactose"/>Lactose Free<br>
-        <input type="submit" value="Submit" onsubmit="myFunction ()">
-        <input type="reset">
-    </form>
-    <script type="text/javascript" src="app.js"></script>
+	<h1>Beta Airlines</h1>
+	<form action=" " name="submitForm" method="POST"></form>
+		<fieldset>
+			<legend>Personal Information</legend>
+			First Name: <input name="firstname" type="text" id="firstname"><br>
+			Last Name: <input name="lastname" type="text" id="lastname"><br>
+			Age: <input name="age" type="number" id="age"><br>
+			Gender:<br>
+			<input name="gender" type="radio" id="male" value="Male"> Male<br>
+			<input name="gender" type="radio" id="female" value="Female"> Female<br>
+			<input name="gender" type="radio" id="other" value="Other"> Other<br>
+		</fieldset>
+		<!-- <input type="submit" value="Send"> <input type="reset">      -->
+		<!-- <input type="button" value="Click Here" onclick="verify()"> -->
+		<!-- <button name="submit" type="submit" value="submit"></button>  -->
+		<!-- <button name="reset"  type="reset"></button><br> -->
+		Designation:
+		<select name="designation">
+			<option label=" " value=" "> </option>
+			<option label="France" value="France"> France</option>
+			<option label="UK" value="UK"> United Kingdom</option>
+			<option label="Japan" value="Japan"> Japan</option>
+			<option label="Egypt" value="Egypt"> Egypt</option>
+			<option label="Denmark" value="Denmark"> Denmark</option>
+		</select><br>
+		<!-- <input type="submit" value="Send"> <input type="reset"><br> -->
+		Diet Restrictions:
+		<input name="diet" type="checkbox" id="all" value="all" />Select All
+		<input name="diet" type="checkbox" id="vegetarian" value="vegetarian" />Vegetarian
+		<input name="diet" type="checkbox" id="kosher" value="kosher" />Kosher
+		<input name="diet" type="checkbox" id="lactose" value="lactose" />Lactose Free<br>
+		<input type="submit" value="Submit" onsubmit="myFunction ()">
+		<input type="reset"> 
+	</form>
+	<script type="text/javascript" src="app.js"></script>
 </body>
 
 </html>
