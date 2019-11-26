@@ -1,0 +1,41 @@
+
+h1, h2 {
+    color: darkgreen;
+    font-family: georgia;
+    text-align: center;
+}
+
+p {
+    line-height: 25px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+strong {
+    font-weight: normal;
+} 
+
+ .caps-text {
+    text-transform: uppercase;  
+}
+
+a:visited {
+    text-decoration: none;
+
+}
+
+a:hover{
+    text-decoration: underline;
+    
+}
+
+a:active {
+    text-decoration: underline;
+} 
+
+img {
+    float: left;
+     margin-right: 10pt;
+}
