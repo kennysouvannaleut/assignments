@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    background: lightblue;
+    font-size: 0;
+}
+
+.flag-container {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.France {
+    width: 180px;
+    height: 120px;
+    display: block;
+    border: 1px solid lightblue;
+    background: linear-gradient(to right, darkblue calc(100% / 3), white calc(100% / 3), white calc(100% / 3 * 2), red calc(100% / 3 * 2));
+    }
+
+.Germany {
+    width: 180px;
+    height: 120px;
+    display: block;
+    border: 1px solid lightblue;
+    background: linear-gradient(to bottom, black calc(100% / 3), red calc(100% / 3), red calc(100% / 3 * 2), yellow calc(100% / 3 * 2));
+}
+
+.Madagascar {
+    width: 180px;
+    height: 120px;
+    display: block;
+    border: 1px solid lightblue;
+    background: linear-gradient(to right, white 30%, transparent 30%), linear-gradient(to bottom ,red 50%, green 50%);
+}
+
+.Switzerland {
+    width: 180px;
+    height: 120px;
+    display: block;
+    border: 1px solid lightblue;
+    background: linear-gradient(to bottom, transparent calc(100% / 3), white calc(100% / 3), white calc(100% / 3 * 2), transparent 0), linear-gradient(to right, transparent calc(100% / 3), white calc(100% / 3), white calc(100% / 3 * 2), transparent 0), red;
+    background-size: 80px 80px;
+    background-repeat: no-repeat;
+    background-position: 50px 20px;
+
+}
+
+.Sweden {
+    width: 180px;
+    height: 120px;
+    display: block;
+    border: 1px solid lightblue;
+    background: linear-gradient(to right, transparent 30%, #FECC00 30%, #FECC00 45%, transparent 0), linear-gradient(to bottom, transparent 38%, #FECC00 38%, #FECC00 59%, transparent 0), #006AA7;
+}
+
+.Gambia {
+    width: 180px;
+    height: 120px;
+    display: block;
+    border: 1px solid lightblue;
+    background: linear-gradient(to bottom, red 30%, white 30%, white 35%, darkblue 35%, darkblue 65%, white 65%, white 70%, green 70%);
+}
+
+.Tonga {
+    width: 180px;
+    height: 120px;
+    display: block; 
+    border: 1px solid lightblue;
+    background: red;
+}
+
+.Tonga:before {
+    content: "";
+    width: 50%;
+    height: 50%;
+    display: block;
+    border: 1px solid white;
+    background: linear-gradient(to bottom, transparent calc(100% / 3), red calc(100% / 3), red calc(100% / 3 * 2), transparent 0), linear-gradient(to right, transparent calc(100% / 3), red calc(100% / 3), red calc(100% / 3 * 2), transparent 0), white;
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    background-position: 50% 10px;
+}
+
+.Japan {
+    width: 180px;
+    height: 120px;
+    display: block;
+    border: 1px solid lightblue;
+    background: radial-gradient(100px at 50% 50%, red 0, red 35%, transparent 35%, transparent 100%), white;
+}
+
+.Greece {
+    width: 180px;
+    height: 120px;
+    display: block;
+    border: 1px solid lightblue;
+    background: repeating-linear-gradient(to bottom, #0D5EAF, #0d5eaf calc(120px / 9), white calc(120px / 9), white calc(120px / 9 * 2));
+}
+
+.Greece:before {
+    content: "";
+    position: absolute; 
+    width: calc(120px / 9 * 5);
+    height: calc(120px / 9 * 5);
+    background: linear-gradient(to bottom, transparent calc(120px / 9 * 2), white calc(120px / 9 * 2), white calc(120px / 9 * 3), transparent calc(120px / 9 * 3)), linear-gradient(to right, transparent calc(120px / 9 * 2), white calc(120px / 9 * 2), white calc(120px / 9 * 3), transparent calc(120px / 9 * 3)), #0D5EAF;
+}
+
+.Niger {
+    width: 180px;
+    height: 120px;
+    display: block;
+    border: 1px solid lightblue;
+    background: radial-gradient(50px at 50% 50%, #E05206 0, #E05206 35%, transparent 35%, transparent 100%), linear-gradient(to bottom, #E05206 calc(100% / 3), white calc(100% / 3 * 2), green calc(100% / 3 * 2));
+}
+
+.Maldives {
+    width: 180px;
+    height: 120px;
+    display: block;
+    border: 30px solid red;
+    background: radial-gradient(55px at 55% 50%, green 0, green 35%, transparent 35%, transparent 100%), radial-gradient(60px at 50% 50%, white 0, white 35%, transparent 35%, transparent 100%), green;
+}
+

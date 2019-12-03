@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 26pt;
+    text-align: center;
+    font-family: 'Gill Sans';
+    color: grey;
+    text-decoration: underline;
+    text-transform: uppercase;
+    line-height: 20pt;
+    height: 35pt;
+}
+
+body {
+    font-size: 12pt;
+    background: white;
+    color: black;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+fieldset {
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 2px;
+    border: solid grey 2px;
+}
+

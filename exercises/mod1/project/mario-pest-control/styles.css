@@ -1,0 +1,27 @@
+body {
+    background-color: white;
+}
+
+#footer {
+    text-align: center;
+    text-emphasis: none;
+    font-size: 13px;
+}
+
+h1 { 
+    font-size: 50px;
+    text-align: center;
+}
+
+h3 {
+    color: darkred;
+}
+
+.container  {
+    text-align: center;
+}
+
+strong {
+    font-style: italic;
+    color: red;
+}
