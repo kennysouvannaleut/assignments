@@ -1,0 +1,18 @@
+* {
+    color: white;
+    font-size: 30pt;
+}
+
+body {
+    background: black;
+}
+
+input {
+    color: black;
+}
+
+button {
+    margin: 10pt;
+    background: rgba(50, 50, 50, 1);
+    padding: 15pt;
+}
