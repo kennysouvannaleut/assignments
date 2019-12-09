@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+    <title>Contact</title>
     <link
         href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900|Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
@@ -14,7 +14,7 @@
 
 <body>
     <header>
-        <a class="header-brand">G6 Commerical Management</a>
+        <!-- <a class="header-brand">GET IN TOUCH</a> -->
         <nav>
             <a href="index.html" class="site-nav">Home</a>
         </nav>
@@ -22,13 +22,24 @@
     <main>
         <section class="index-banner">
             <div class="vertical-center">
-                <div class="img-container">
-                    <img src="/webpage/image/g6commercial.png" width="100%" alt="g6-logo">
-                </div>
-                <h2>NO FEES. NO HASSLE. <br>NO RED TAPE!</h2>
-                <h1>Experienced Real Estate Professionals, Investors, and Private Lenders here... Whether you need private funding for your next FIX-N-FLIP, or just looking for a joint-venture partnership? We're FAST. DEPENDABLE. PROFESSIONAL and here to help your through your Real Estate problems. Drop us a note!</h1>
+                <!-- <div class="img-container">
+                    <img src="/webpage/image/g6asset.png" width="100%" alt="g6asset-logo">
+                </div> -->
+                <h2>GET IN TOUCH!</h2>
+                <h1>DROP US A NOTE. <br>TELL US HOW WE'RE DOING. <br>WE'D LOVE TO HEAR FROM YOU!</h1>
             </div>
         </section>
+        <form action=" " name="clientForm">
+            <fieldset>
+                <legend>Enter Your Contact Information Below:</legend>
+                Name: <input name="firstName" type="text" id="firstName"><br>
+                Email: <input name="email" type="email" id="email"><br>
+                Phone Number: <input name="phoneNumber" type="tel" id="phoneNumber"><br>
+                Comment: <input name="comment" type="text" id="comment"><br>
+            </fieldset>
+            <button>Submit</button>
+            <input name="Clear Form" type="reset">
+        </form>
         <div class="wrapper">
             <section class="index-links">
                 <a href="#funding.html">
@@ -70,6 +81,7 @@
             </div>
         </footer>
     </div>
+    <script src="app.js"></script>
 </body>
 
 </html>

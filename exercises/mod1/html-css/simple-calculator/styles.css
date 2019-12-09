@@ -14,7 +14,7 @@ input [type="button"] {
 }  */
 
 body, .calculator {
-    background-color: darkblue;
+    background-color: blue;
     border: none;
     color: white;
     padding: 15px 32px;
