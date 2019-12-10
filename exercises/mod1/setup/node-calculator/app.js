@@ -1,4 +1,4 @@
 // NODE CALCULATOR
 
-const readline = require("readline-sync")
+const readline = require("readline-sync");
 
