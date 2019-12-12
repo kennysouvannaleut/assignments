@@ -26,6 +26,7 @@ function cesearCipher (string, num) {
             // } else {
             // let newCharCode = code + Math.ceil(num % 26); 
 
+            
     //         if (code >= 97 && newCharCode > 122) {
     //             let newCharCode = code + Math.ceil(num % 26)
     //             newCharCode = newCharCode - 122 + 96
