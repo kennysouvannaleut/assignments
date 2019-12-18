@@ -1,9 +1,12 @@
-// RPG
+// RPG 
 const readline = require('readline-sync');
 // let gameOver = false;
 // let hasItem = false;
 
 const playerName = readline.question('\nMay I have your name? ');
+
+function getRandomChance(escapeChance) {
+    return Math.floor(Math.random() * escapeChance + 1) }
 
 //Game Variables:
 Game:
@@ -18,10 +21,10 @@ attackDamage = 50;
 bonusHealth = 30;
 // inventoryItems = 0;
 healthDropChance = 50;
-escapeChance = 50;
+// escapeChance = 1;
 
 let walking = true;
-console.log('\nWelcome ' + playerName + '!' + ' I hope you enjoy my RPG game!' );
+console.log('\nWelcome ' + playerName + '!' + ' I hope you enjoy this RPG game!' );
 
 while(walking) {
     enemyHealth = Math.floor(Math.random() * Math.floor(maxEnergyHealth));
@@ -45,6 +48,8 @@ while(enemyHealth > 0) {
         health -= damageTaken
         console.log("\t> You striked the " + enemies[enemy] + " for " + damageDealt + " damage.");
         console.log("\t> You received " + damageTaken + " in retaliation!")
+        // console.log("\t> " + enemies[enemy] + " was defeated!");
+        // console.log("\t> You have in total " + health + " HP:");
         // console.log("\t> Nice hit! you received extra HP")
     // } if (damageDealt > 50) {
         // console.log('\t> Nice hit! You received ' + bonusHealth)
@@ -52,9 +57,9 @@ while(enemyHealth > 0) {
     } if(choice === 0 && health < 1) {
         console.log("\t> Sorry, you took too many blows to the head, and succomb to your injuries!");
         // gameOver = true;
-        break; 
+break; 
         // continue;
-    } if (choice === 0 && health > 0) {
+    // } if (choice === 0 && health > 0) {
     // if(health > 0) {
         // health += bonusHealth; 
     // inventoryItems--;
@@ -64,25 +69,30 @@ while(enemyHealth > 0) {
         // hasItem = true;
         // gameOver = false;
      } else if (choice === 1) {
-         console.log("\t> You actually got away from the " + enemies[enemy] + "!")
-        escapeChance = Math.floor(Math.random() < Math.floor(50)) 
+        function getRandomChance(escapeChance) {
+            return Math.floor(Math.random() * escapeChance + 1) 
+        }
+         console.log("\t> You actually got away from " + enemies[enemy] + "!")
+            // escapeChance = Math.random();
         // console.log('\t> Chances of escaping' + escapeChance) 
         // gameOver = false
     }else 
-        console.log("\t>Invalid command!");
+    // console.log('\t> Your too slow and ' + enemies[enemy] + ' killed you!')
+        // console.log("\t>Invalid command!");
         // gameOver= true;
-        continue;
+continue;
+// break;
     }
     // if(choice === 0 && health < 1) {
         // console.log("\t> You calapsed and died from your injuries.")
         // gameOver= true;
         // break;
         // }
-        // console.log("\n\t>" + enemies[enemy] + " was defeated! # ");
+        console.log("\t> " + enemies[enemy] + " was defeated! ");
         // console.log("\t> You have in total " + health + " HP:");
-    if (healthDropChnace = Math.floor(Math.random(100) < Math.floor(40))) {
-        console.log("\t> " + enemies[enemy] + " was defeated!");
-        console.log("\t> You have in total " + health + " HP:");
+    if (healthDropChnace = Math.floor(Math.random() < Math.floor(3))) {
+        // console.log("\t> " + enemies[enemy] + " was defeated!");
+        // console.log("\t> You have in total " + health + " HP:");
     // inventoryItems++;
         // console.log("\t> Oh no! " + enemies[enemy] + " dropped an item. You picked it up and decided to use it instead of putting it in your item inventory. ");
         // console.log("\t> You picked it up and have #" + inventoryItems + " item that can be added to your inventory or used to increase HP.")
@@ -102,6 +112,7 @@ while(enemyHealth > 0) {
     break;
     }
 };
+
 
 
 
