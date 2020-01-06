@@ -1,26 +1,79 @@
-// // THE PROCESS IS IN ANOTHER CASTLE:
-// class Player{
-//     constructor(name, totalCoins, status, hasStar, setName, goHit, gotPowerup, gameActive, addCoin, print){
-//         this.name = name
-//         this.totalCoins = totalCoins
-//         this.status = status
-//         this.hasStar = hasStar
-//         this.setname = setName
-//         this.goHit = function(){
+let gameActive = true
 
-//         }
-//         this.gotPowerup = function(){
+class Player {
+    constructor(){
+        if(!this instanceof Player){
+            return new Player()
+        }
+        this.name = ""
+        this.totalCoins = 0
+        this.status = "Small"
+        this.hasStar = false
+        if(this.hasStar === true){
+            console.log("You have a star")
+        } 
+    }
+    setName(){
+        const chance = Math.floor(Math.random() * 2)
+        if(chance === 0){
+            this.name = "Mario"
+        } else {
+            this.name = "Luigi"
+        }
+    }
+    gotHit(){
+        if(this.hasStar){
+            console.log("Your star deflected the hit")
+            this.hasStar = false
+        } else{
+            if(this.status === "Powered Up"){
+                this.status = "Big"
+            } else if(this.status === "Big"){
+                this.status = "Small"
+            } else if(this.status === "Small"){
+                this.status = "Dead"
+                gameActive = false
+            }
+        }
+    }
+    gotPowerup(){
+        if(this.status === "Small"){
+            this.status = "Big"
+        } else if(this.status === "Big"){
+            this.status = "Powered Up"
+        } else if(this.status === "Powered Up"){
+            this.hasStar = true
+            console.log("You got a star!")
+        }
+    } 
+    addCoin(){
+        this.totalCoins += 1
+    }
+    print(){
+        console.log(`
+        Name: ${this.name}
+        Total Coins: ${this.totalCoins}
+        Status: ${this.status}
+        `)
+    }
+}
+let player1 = new Player()
+player1.setName()
 
-//         }
-//         this.gameActive = gameActive
-//         this.addCoin = function(){
+const randomNumber = (chance = 3) => Math.floor(Math.random() * chance)
+const intervalId = setInterval(gamePlay, 1000)
 
-//         }
-//         this.print = function(){
-
-//         }
-//         firstName() {
-//             return this.name
-//         }
-//     }
-// }
+function gamePlay(){
+    if(player1.status === "Dead"){
+        clearInterval(intervalId)
+    }
+    player1.print()
+    let chance = randomNumber()
+    if(chance === 0){
+        player1.gotHit()
+    } else if (chance === 1){
+        player1.gotPowerup()
+    } else if (chance === 2){
+        player1.addCoin()
+    }
+}

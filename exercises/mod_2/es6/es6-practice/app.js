@@ -1,5 +1,5 @@
 let name = "John"
-const age = 101
+let age = 101
 
 function runForLoop(pets) {
     let petObjects = []

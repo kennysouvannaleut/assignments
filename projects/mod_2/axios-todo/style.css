@@ -1,0 +1,25 @@
+body{
+    font-size: 15px;
+    color: black;
+    background-color: lightslategray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    text-align: center;
+}
+
+form{
+    font-size: 17px;
+    color: black;
+    display: grid;
+    grid-gap: 2px;
+}
+
+label{
+    cursor: pointer;
+    font-size: 20px;
+}
+
