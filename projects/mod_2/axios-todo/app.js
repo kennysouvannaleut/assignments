@@ -7,53 +7,63 @@ const getData = () => {
 
 const createToDo = (data) => {
     clearList()
+
     for(let i = 0; i < data.length; i++) {
 
-        const container = document.createElement("div")
-        document.className("container")
+        const h1 = document.createElement("h1");
+        h1.textContent = data[i].title;
+        document.getElementById("to-do-list").appendChild(h1);
 
-        const h1 = document.createElement("h1")
-        h1.textContent = data[i].title
-        document.appendChild(h1)
+        const h3 = document.createElement("h3");
+        h3.textContent = data[i].description;
+        document.getElementById("to-do-list").appendChild(h3);
 
-        const p = document.createElement("p")
-        p.textContent = data[i].description
-        document.appendChild(p)
+        const h4 = document.createElement("h4");
+        h4.textContent = data[i].price;
+        document.getElementById("to-do-list").appendChild(h4);
 
         const img = document.createElement("img")
-        img.source = data[i].image
-        img.style.width = "400px"
-        document.appendChild(img)
+        img.src = data[i].imgUrl;
+        img.style.width = "300px"
+        document.getElementById("to-do-list").appendChild(img)
 
-        // document.getElementById("to-do-list").appendChild("div")
-        // document.getElementById("to-do-list").innerHTML = ""
+        // const div = document.createElement("div");
+        // document.body.append(div);
+        // document.getElementById("to-do-list").appendChild(div);
 
-
-        // const main = document.getElementById("container");
-        // const title = content.getElementsByTagName('h1')
-        // const description = content.getElementsByTagName("p");
-        // const element = document.getElementById("to-do-list").element.innerHTML = "";
-        // const images = document.getElementsByClassName("imgUrl").src = "";
-        const title = document.getElementById("to-do-list").innerHTML;
-        document.documentElement.innerHTML;
-
-
-
-        // document.forms
-        // document.links
-        // document.URL
-        
+        document.innerHTML = "";
     }
 }
 
-const clearList = (item) => {
-    document.getElementById("to-do-list")
-    while(item.firstChild){
+function deleteData(data){
+    axios.delete("https://api.vschool.io/kenny/todo/5e13b0915b4f827a2c23558d", data)
+        .then(response =>
+            alert("Your todo was successfully deleted!"), 
+        function(response){
+            alert("Opps there was a problem deleting your todo")
+    })
+        .catch(error => console.log(error))
+}
+
+// const updateData = {
+//     // title: "",
+//     // description: "",
+// imgUrl: "https://images.unsplash.com/photo-1572253451563-e74a694b0b93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+// }
+// axios.put("https://api.vschool.io/kenny/todo/5e13b0915b4f827a2c23558d", updateData)
+//     .then(response => console.log(response.data))
+//     .catch(error => console.log(error))
+
+function clearList(){
+    const item = document.getElementById("to-do-list")
+        while(item.firstChild){
         item.removeChild(item.firstChild)
+        // item.firstChild.remove()
     }
 }
 
-getData()
+getData();
+// deleteData();
 
 const toDoForm = document.forms["to-do-form"]
 
@@ -75,8 +85,3 @@ axios.post("https://api.vschool.io/kenny/todo", newToDoList)
     .then(response => getData())
     .catch(error => console.log(error))
 })
-
-// const actionRemove = (deleteItem) => {
-
-// }
-

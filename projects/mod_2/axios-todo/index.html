@@ -11,27 +11,29 @@
 
 <body>
     <div id="container">
-        <h1>TO DO LIST</h1>
+        <h1>TODOs</h1>
 
-        <form name="to-do-form">
+        <form name="to-do-form" method="POST" action="https://api.vschool.io/kenny/todo">
 
             <label for="title">Title:</label>
             <input type="text" name="title" placeholder="Title" required /><br>
 
             <label for="description">Description:</label>
-            <textarea name="description" rows="10" cols="40"></textarea><br>
+            <textarea name="description" rows="5" cols="5"></textarea><br>
 
             <label for="price">Price:</label>
             <input type="number" name="price" placeholder="Price" /><br>
 
             <label for="imgUrl">Img Url:</label>
-            <textarea name="imgUrl" rows="5" cols="5"></textarea><br>
+            <textarea name="imgUrl" rows="3" cols="3"></textarea><br>
 
             <button>Submit</button>
 
         </form>
 
-        <div id="to-do-list">todos listed here</div>
+        <div id="to-do-list">
+
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
