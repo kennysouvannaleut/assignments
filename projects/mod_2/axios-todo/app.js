@@ -10,47 +10,69 @@ const createToDo = (data) => {
 
     for(let i = 0; i < data.length; i++) {
 
+        // title
         const h1 = document.createElement("h1");
         h1.textContent = data[i].title;
         document.getElementById("to-do-list").appendChild(h1);
 
+        // description
         const h3 = document.createElement("h3");
         h3.textContent = data[i].description;
         document.getElementById("to-do-list").appendChild(h3);
 
+        // price
         const h4 = document.createElement("h4");
         h4.textContent = data[i].price;
         document.getElementById("to-do-list").appendChild(h4);
 
+        // image
         const img = document.createElement("img")
         img.src = data[i].imgUrl;
         img.style.width = "300px"
         document.getElementById("to-do-list").appendChild(img)
 
-        // const div = document.createElement("div");
-        // document.body.append(div);
-        // document.getElementById("to-do-list").appendChild(div);
+        // div
+        const div = document.createElement("div");
+        document.body.append(div);
+        document.getElementById("to-do-list").appendChild(div);
 
-        document.innerHTML = "";
+        //deleteButton
+        const deleteButton = document.createElement('button');
+        deleteButton.addEventListener('click', function(){deleteData(data[i]._id)})
+        document.getElementById("to-do-list").appendChild(deleteButton);
+
+        // if(response.data[i].completed === true){
+        //     title.style["text-decoration"] = "line-through"
+        //     description.style["text-decoration"] = "line-through"
+        //     price.style["text-decoration"] = "line-through"
+        // }
+
+        // editButton
+        // const editButton = document.createElementNS('button');
+        // editButton.addEventListener('click', function(){updateData(data[i]._id)})
+        // document.getElementById("to-do-list").appendChild(editButton);
     }
 }
 
-function deleteData(data){
-    axios.delete("https://api.vschool.io/kenny/todo/5e13b0915b4f827a2c23558d", data)
+function deleteData(_id){
+    axios.delete(`https://api.vschool.io/kenny/todo/${_id}`)
         .then(response =>
             alert("Your todo was successfully deleted!"), 
         function(response){
             alert("Opps there was a problem deleting your todo")
     })
         .catch(error => console.log(error))
+
+    clearList()
+    getData()
 }
 
-// const updateData = {
+// const updateData =  {
 //     // title: "",
-//     // description: "",
-// imgUrl: "https://images.unsplash.com/photo-1572253451563-e74a694b0b93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+//     description: "tools",
+// // imgUrl: "https://images.unsplash.com/"
 // }
-// axios.put("https://api.vschool.io/kenny/todo/5e13b0915b4f827a2c23558d", updateData)
+// axios.put("https://api.vschool.io/kenny/todo/5e161154bdc37f544cfa5e87", updateData)
 //     .then(response => console.log(response.data))
 //     .catch(error => console.log(error))
 
@@ -58,12 +80,8 @@ function clearList(){
     const item = document.getElementById("to-do-list")
         while(item.firstChild){
         item.removeChild(item.firstChild)
-        // item.firstChild.remove()
     }
 }
-
-getData();
-// deleteData();
 
 const toDoForm = document.forms["to-do-form"]
 
@@ -85,3 +103,5 @@ axios.post("https://api.vschool.io/kenny/todo", newToDoList)
     .then(response => getData())
     .catch(error => console.log(error))
 })
+
+getData()
