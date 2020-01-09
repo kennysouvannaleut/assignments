@@ -1,14 +1,13 @@
 import React from "react"
-
-import Card from "./Components/Card"
+import Vacation from "./Vacation"
 import vacationSpots from "./vacationSpots"
 
-function App(){
-    const mappedSpots = vacationSpots.map(spot => <Card place={spot.place} price={spot.price} timeToGo={spot.timeToGo}/>)
+function App() {
+    const vacationComponents = vacationSpots.map(place => <Vacation vacation={place}/>)
+
     return(
         <div>
-            <h2 style={{textDecoration: "underline"}} >Vacation Spots:</h2>
-            {mappedSpots}
+            {vacationComponents}
         </div>
     )
 }
