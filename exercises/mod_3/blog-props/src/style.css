@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5) ), url("https://blackrockdigital.github.io/startbootstrap-clean-blog/img/home-bg.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size:  cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+}
+
+nav{
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    text-emphasis: none;
+
+}
+
+.navbar-nav{
+    display: flex;
+    text-align: right;
+    text-emphasis: none;
+    text-decoration: none;
+    /* width: 100% */
+}
+
+.active{
+    display: flex;
+    text-emphasis: none;
+    text-decoration: none;
+}
+
+body{
+    margin-top: 0;
+}
+
+h1{
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    padding-bottom: 10px;
+}
+
+.title{
+    margin-top: 100px;
+    font-size: 60px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+h2{
+    margin-top: 70px;
+    font-size: 30px;
+    font-weight: 800;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+h3{
+    margin-top: 5px;
+    text-emphasis: none;
+    text-decoration: none;
+}
+
+.navbar-brand{
+    text-emphasis: none;
+    color: white;
+    font-size: 15px;
+    margin-top: 20px;
+    text-decoration: bold;
+    margin-left: 100px;
+    text-decoration: none;
+    width: 100%;
+}
+
+.container{
+    margin: auto;
+    width: 500px;
+    margin-bottom: 40px;
+}
+
+p{
+    border-bottom: 1px solid lightgray;
+    margin-top: 10px;
+    /* margin-bottom: 40px; */
+    padding-bottom: 20px;
+    font-style: italic;
+    color: grey;
+}
+
+.subHeading{
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    display: block;
+    font-family: 'Times New Roman', Times, serif
+}
+
+footer{
+    color: grey;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+a{
+    margin-top: 20px;
+    /* width: 100px; */
+    font-size: 10px;
+    color: white;
+    font-weight: 800;
+    text-emphasis: none;
+    text-decoration: none;
+    margin-right: 60px;
+    margin-left: 0;
+}
