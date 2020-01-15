@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-import App from "./App"
+import Square from "./Square"
 import CSS from "./style.css"
 
-ReactDOM.render(<App />, document.getElementById("root"))
+ReactDOM.render(<Square />, document.getElementById("root"))
