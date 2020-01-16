@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+.App {
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: capitalize;
+    color: darkblue;
+    text-align: center;
+}
