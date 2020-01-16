@@ -6,10 +6,10 @@ function Navbar() {
         <nav>
             <a className="navbar-brand" href="">Start Bootstrap</a>
             <ul className="navbar-nav">
-                <li className="active"><a href="#">HOME</a></li>
-                <li className="active"><a href="#">ABOUT</a></li>
-                <li className="active"><a href="#">SAMPLE POST</a></li>
-                <li className="active"><a href="#">CONTACT</a></li>
+                <a href="#">HOME</a>
+                <a href="#">ABOUT</a>
+                <a href="#">SAMPLE POST</a>
+                <a href="#">CONTACT</a>
             </ul>
         </nav>
     </div>

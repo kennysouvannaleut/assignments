@@ -29,12 +29,6 @@ nav{
     /* width: 100% */
 }
 
-.active{
-    display: flex;
-    text-emphasis: none;
-    text-decoration: none;
-}
-
 body{
     margin-top: 0;
 }
