@@ -67,10 +67,13 @@ const friends = [
   }
 ]
 
-const petsList = friends.reduce( ( p, { pets, breed } ) => p.concat( [ { breed } ], pets ), [] )
+const petsList = friends.reduce( ( p, { name, pets } ) => p.concat( [ { name } ], pets ), [] )
 // console.log(petsList)
 
 const friendsList = friends.reduce( ( f, { name, age } ) => f.concat( [ { age } ], name ), [] )
 // console.log(friendsList)
+
+const newList = friends.reduce( ( f, { name, pets, breed } ) => f.concat( ( [ { breed } ], name), pets), [] )
+// console.log(newList)
 
 export default friends

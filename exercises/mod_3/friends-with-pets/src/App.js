@@ -20,8 +20,8 @@ function App() {
 
     return (
         <div className = "App" >
-            { displayFriends }
-            { displayPets }
+            {/* { displayFriends } */}
+            {/* { displayPets } */}
             {/* <Friend /> */}
             {/* <Pet /> */}
         </div>
