@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { createPortal } from "react-dom"
 
 export default class BadgeForm extends Component {
   constructor(props) {
@@ -10,7 +11,8 @@ export default class BadgeForm extends Component {
       placeOfBirth: "",
       phone: "",
       favoriteFood: "",
-      textArea: ""
+      textArea: "",
+      message: "This field cannot be blank"
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -122,6 +124,7 @@ export default class BadgeForm extends Component {
         </form> 
         <hr />
           <h2 style={ styles.header }>Badge</h2>
+          <h3 style={{ color: "red" }}>{ this.state.message.length }</h3>
           <p style={ styles.paragraph }>Name: { this.state.firstName } { this.state.lastName }</p>
           <p style={ styles.paragraph }>Place of Birth: { this.state.placeOfBirth }</p>
           <p style= { styles.paragraph }>Email: { this.state.email }</p>
