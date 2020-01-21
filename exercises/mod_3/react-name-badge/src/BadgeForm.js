@@ -10,6 +10,7 @@ export default class BadgeForm extends Component {
       placeOfBirth: "",
       phone: "",
       favoriteFood: "",
+      textArea: "",
       message: "3",
       onSubmit: false
     }
@@ -18,10 +19,9 @@ export default class BadgeForm extends Component {
   }
 
   handleChange = (event) => {
-    let nam = event.target.name
-    let val = event.target.value
+    const { name, value } = event.target
     this.setState({
-      [nam]: val
+      [name]: value
     })
   }
 
@@ -34,12 +34,10 @@ export default class BadgeForm extends Component {
 
   ){
     return (
-      <main>
+      <main style={ styles.container }>
         <form onSubmit={ this.handleSubmit } >
-          <input 
-            style={{
-              width: "150px"
-             }}
+          <input required
+            style={ styles.input }
             type="text"
             name="firstName"
             value={ this.state.firstName }
@@ -48,9 +46,7 @@ export default class BadgeForm extends Component {
         /> 
 
           <input
-            style={{
-              width: "150px"
-             }}
+            style={ styles.input }
             type="text"
             name="lastName"
             value={ this.state.lastName }
@@ -59,10 +55,8 @@ export default class BadgeForm extends Component {
         />
         <br />
 
-          <input 
-            style={{
-              width: "150px"
-             }}
+          <input
+            style={ styles.input }
             type="email"
             name="email"
             value={ this.state.email }
@@ -71,9 +65,7 @@ export default class BadgeForm extends Component {
         />
 
           <input 
-            style={{
-              width: "150px"
-             }}
+            style={ styles.input }
             type="text"
             name="placeOfBirth"
             value={ this.state.placeOfBirth }
@@ -82,10 +74,8 @@ export default class BadgeForm extends Component {
         />
         <br />
 
-          <input 
-            style={{
-              width: "150px"
-             }}
+          <input
+            style={ styles.input }
             type="tel"
             name="phone"
             value={ this.state.phone }
@@ -94,10 +84,8 @@ export default class BadgeForm extends Component {
             pattern="^-?[0-9]\d*\.?\d*$"
         />
 
-          <input
-            style={{
-              width: "150px"
-             }}
+          <input 
+            style={ styles.input }
             type="text"
             name="favoriteFood"
             value={ this.state.favoriteFood }
@@ -107,26 +95,89 @@ export default class BadgeForm extends Component {
         <br />
 
           <input 
-            style={{ 
-              width: "300px", 
-              height: "80px"
-             }}
-            value="Tell us about yourself"
+            style={ styles.inputTextArea }
+            name="textArea"
+            value= { this.state.textArea }
+            placeholder="Tell us about yourself"
             onChange={ this.handleChange }
         />    
         <br />
           
-        <button>Submit</button>
-        </form>
+        <button style={ styles.button }>Submit</button>
+        </form> 
         <hr />
-          <h2>Badge</h2>
-          <p>Name: { this.state.firstName } { this.state.lastName }</p>
-          <p>Place of Birth: { this.state.placeOfBirth }</p>
-          <p>Email: { this.state.email }</p>
-          <p>Phone: { this.state.phone }</p>
-          <p>Favorite Food: { this.state.favoriteFood }</p>
+          <h2 style={ styles.header }>Badge</h2>
+          <p style={ styles.paragraph }>Name: { this.state.firstName } { this.state.lastName }</p>
+          <p style={ styles.paragraph }>Place of Birth: { this.state.placeOfBirth }</p>
+          <p style= { styles.paragraph }>Email: { this.state.email }</p>
+          <p style= { styles.paragraph }>Phone: { this.state.phone }</p>
+          <p style= { styles.paragraph }>Favorite Food: { this.state.favoriteFood }</p>
+          <p style={ styles.about }>{ this.state.textArea }</p>
 
       </main>
     )
   }
 }
+
+ const styles = {
+   container: {
+     flex: 1,
+     backgroundColor: "#fff",
+     alignItems: "center",
+     justifyContent: "center",
+   },
+
+   input: {
+     borderWidth: 1,
+     borderColor: "#777",
+     padding: 8,
+     margin: 10,
+     width: 200,
+   },
+
+   inputTextArea: {
+    borderWidth: 1,
+    borderColor: "#777",
+    padding: 8,
+    margin: 10,
+    width: 420,
+    height: 80,
+   },
+
+   button: {
+     backgroundColor: "#fff",
+     margin: 10,
+     fontWeight: 150,
+     fontSize: 18,
+   }, 
+
+   header: {
+     borderWidth: 1,
+     margin: 10,
+     height: 60,
+     paddingTop: 10,
+     width: 420,
+     fontSize: 30,
+     color: "white",
+     backgroundColor: "grey",
+     textAlign: "center",
+   },
+
+   about: {
+    border: "1px solid",
+    borderColor: "#777",
+    padding: 8,
+    margin: 10,
+    width: 420,
+    height: 80,
+    fontSize: 14,
+    color: "black",
+   },
+
+   paragraph: {
+    padding: 5,
+    margin: 10,
+    fontSize: 14,
+   },
+
+ }
