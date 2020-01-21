@@ -1,51 +1,56 @@
 import React, { Component } from "react"
 
-export default class NameEntryForm extends Component {
+export default class NameForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-                listOfNames: []             
+                listNames: []         
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-    handleChange = () => {
-        this.setState(prevState => {
-            const updatedNames = prevState.listOfNames.map(name => {
-                return [
-                    {}, 
-                    ...updatedNames
-                ]
+    handleChange = (event, index) => {
+        const target = event.target
+        const value = target.value
+        const name = target.name
+        this.setState({
+            listNames: this.state.listNames.map((person, nameIndex) => {
+                if(nameIndex === index) {
+                    return {
+                        ...person,
+                        [name]: value
+                    }
+                }
+                return person
             })
         })
     }
 
     handleSubmit = (event) => {
+        this.handleChange()
         event.preventDefault()
-        { this.handleChange }
     }
 
-    render() {
-        const namesList = this.state.listOfNames.map(name => <div name>{ name }</div>)
+    render(){
 
         return (
             <main style={ styles.container } >
                 <form onSubmit={ this.handleSubmit } >
-                    <input required
+                    <label>
+                        Name:
+                    <input
                         style={ styles.input } 
                         type="text"
-                        name="listOfNames"
-                        value={ this.state.listOfNames }
-                        placeholder="Full Name"
+                        name="listNames"
+                        value={ this.state.listNames }
                         onChange={ this.handleChange }
                     />
+                    </label>
                 <button style={ styles.button }>Submit</button>
                 </form>
                 <hr />
                 <h1 style={ styles.header }>List of Names:</h1>
-                <ul>
-                    <li>{ this.state.list } { namesList }</li>
-                </ul>
+                <ul style={ styles.list }>{ this.state.listNames }</ul>
 
             </main>
         )

@@ -10,9 +10,7 @@ export default class BadgeForm extends Component {
       placeOfBirth: "",
       phone: "",
       favoriteFood: "",
-      textArea: "",
-      message: "3",
-      onSubmit: false
+      textArea: ""
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -25,20 +23,31 @@ export default class BadgeForm extends Component {
     })
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault()
-    alert()
+  canBeSubmitted = () => {
+    const { firstName, lastName, phone, placeOfBirth, favoriteFood, email, textArea } = this.state
+    return (
+      firstName.length > 0 &&  lastName.length > 0 &&  phone.length > 0 &&  placeOfBirth.length > 0 && 
+      favoriteFood.length > 0 && email.length > 0 && textArea.length > 0
+    )
   }
 
-  render(
+  handleSubmit = (event) => {
+    if(!this.canBeSubmitted()) {
+      event.preventDefault()
+      return
+    }
+  }
+  
+  render(){
+    const isEnabled = this.canBeSubmitted()
 
-  ){
     return (
       <main style={ styles.container }>
         <form onSubmit={ this.handleSubmit } >
-          <input required
+          <input 
+            minlength="3"
             style={ styles.input }
-            type="text"
+            type="text" required
             name="firstName"
             value={ this.state.firstName }
             placeholder="First Name"
@@ -46,8 +55,9 @@ export default class BadgeForm extends Component {
         /> 
 
           <input
+            minlength="3" 
             style={ styles.input }
-            type="text"
+            type="text" required
             name="lastName"
             value={ this.state.lastName }
             placeholder="Last Name"
@@ -56,8 +66,9 @@ export default class BadgeForm extends Component {
         <br />
 
           <input
+            minlength="3" 
             style={ styles.input }
-            type="email"
+            type="email" required
             name="email"
             value={ this.state.email }
             placeholder="Email"
@@ -65,8 +76,9 @@ export default class BadgeForm extends Component {
         />
 
           <input 
+            minlength="3"
             style={ styles.input }
-            type="text"
+            type="text" required
             name="placeOfBirth"
             value={ this.state.placeOfBirth }
             placeholder="Place of Birth"
@@ -75,9 +87,10 @@ export default class BadgeForm extends Component {
         <br />
 
           <input
+            minlength="3"
             style={ styles.input }
             type="tel"
-            name="phone"
+            name="phone" required
             value={ this.state.phone }
             placeholder="Phone"
             onChange={ this.handleChange }
@@ -85,9 +98,10 @@ export default class BadgeForm extends Component {
         />
 
           <input 
+            minlength="3" 
             style={ styles.input }
             type="text"
-            name="favoriteFood"
+            name="favoriteFood" required
             value={ this.state.favoriteFood }
             placeholder="Favorite Food" 
             onChange={ this.handleChange }
@@ -95,15 +109,16 @@ export default class BadgeForm extends Component {
         <br />
 
           <input 
+            minlength="3"
             style={ styles.inputTextArea }
-            name="textArea"
+            name="textArea" required 
             value= { this.state.textArea }
             placeholder="Tell us about yourself"
             onChange={ this.handleChange }
         />    
         <br />
           
-        <button style={ styles.button }>Submit</button>
+        <button disabled={ !isEnabled } style={ styles.button }>Submit</button>
         </form> 
         <hr />
           <h2 style={ styles.header }>Badge</h2>
@@ -145,7 +160,8 @@ export default class BadgeForm extends Component {
    },
 
    button: {
-     backgroundColor: "#fff",
+     color: "white",
+     backgroundColor: "#777",
      margin: 10,
      fontWeight: 150,
      fontSize: 18,
@@ -179,5 +195,4 @@ export default class BadgeForm extends Component {
     margin: 10,
     fontSize: 14,
    },
-
  }

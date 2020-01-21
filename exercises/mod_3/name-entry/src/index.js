@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import NameEntryForm from './NameEntryForm';
+import NameForm from './NameForm';
 
-ReactDOM.render(<NameEntryForm />, document.getElementById('root'));
+ReactDOM.render(<NameForm />, document.getElementById('root'));
