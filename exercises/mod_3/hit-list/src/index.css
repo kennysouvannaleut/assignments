@@ -1,3 +1,42 @@
 * {
   box-sizing: border-box;
 }
+
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+.image {
+    max-width: 100%;
+}
+
+.cell img {
+    display: block;
+}
+
+.cell {
+    margin: 1rem;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+@media screen and (min-width: 600px) {
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    .cell {
+        width: 50%
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .cell {
+        width: calc(50% - 2rem)
+    }
+}
