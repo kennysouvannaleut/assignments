@@ -1,79 +1,15 @@
 import React from "react"
+import Friend from "./Friend"
+import friendData from "./../friendData"
 
-const friends = [
-  {
-    name: "Ben",
-    age: 29,
-    pets: [
-      {
-        name: "spot",
-        breed: "tabby"
-      }, 
-      {
-        name: "John Johnson",
-        breed: "husky"
-      }, 
-      {
-        name: "Bear the bear",
-        breed: "Grizzly"
-      }
-    ]
-  }, 
-  {
-    name: "Bob",
-    age: 31,
-    pets: [
-      {
-        name: "Sally",
-        breed: "Australian Shepard"
-      }
-    ]
-  }, 
-  {
-    name: "Marcus",
-    age: 25,
-    pets: [
-      {
-        name: "Indy",
-        breed: "Akita"
-      }, 
-      {
-        name: "Anna",
-        breed: "persian cat"
-      }
-    ]
-  }, 
-  {
-    name: "Jacob",
-    age: 20,
-    pets: [
-      {
-        name: "fluffy",
-        breed: "sphynx cat"
-      }, 
-      {
-        name: "patches",
-        breed: "sphynx cat"
-      }, 
-      {
-        name: "tiger",
-        breed: "sphynx cat"
-      }, 
-      {
-        name: "oscar",
-        breed: "sphynx cat"
-      }
-    ]
-  }
-]
+const FriendList = () => {
+  let displayFriends = friendData.map(friend => <Friend name={ friend.name } age={ friend.age } pets={ friend.pets } 
+  /> )
+    return (
+        <>
+          {displayFriends}
+        </>
+    )
+}
 
-const petsList = friends.reduce( ( p, { name, pets } ) => p.concat( [ { name } ], pets ), [] )
-// console.log(petsList)
-
-const friendsList = friends.reduce( ( f, { name, age } ) => f.concat( [ { age } ], name ), [] )
-// console.log(friendsList)
-
-const newList = friends.reduce( ( f, { name, pets, breed } ) => f.concat( ( [ { breed } ], name), pets), [] )
-// console.log(newList)
-
-export default friends
+export default FriendList

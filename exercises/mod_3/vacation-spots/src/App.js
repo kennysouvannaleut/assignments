@@ -1,13 +1,14 @@
 import React from "react"
-import Vacation from "./Vacation"
 import vacationSpots from "./vacationSpots"
+import Spots from "./Components/Spots"
 
-function App() {
-    const vacationComponents = vacationSpots.map(place => <Vacation vacation={place}/>)
+const App = () => {
 
-    return(
+    let spots = vacationSpots.map(place => <Spots spot={place} />)
+    
+    return (
         <div>
-            {vacationComponents}
+            {spots}
         </div>
     )
 }

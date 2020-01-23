@@ -25,9 +25,9 @@ export default class App extends Component {
 
   handleClick = (evt) => {
     evt.preventDefault()
-    const selectColor = ("#"+('00000'+(Math.random()*(1<<24)|0).toString(16)).slice(-6))
+    const setColor = ("#"+('00000'+(Math.random()*(1<<24)|0).toString(16)).slice(-6))
     this.setState({
-      color: selectColor
+      color: setColor
     })
   }
 

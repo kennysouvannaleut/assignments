@@ -1,11 +1,10 @@
 import React from "react"
 
-function Pet(props) {
-
+const Pet = (props) => {
     return (
         <div className = "Pet" >
-            { { color: "green" } } > Pet Name: { props.pet.name }
-            { { color: "orange" } } > Breed: { props.pet.breed }
+            Pets Name: <p>{ props.name }</p>           
+            Pets Breed: <p>{ props.breed }</p>
         </div>
     )
 }
