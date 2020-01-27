@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    padding: 20px;
+    color: white;
+}
+
+.navbar {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333333;
+    color: white;
+}
+
+.Button {
+    padding: 10px;
+    width: 25%;
+    font-size: 12px;
+    border: 2px solid grey;
+    text-align: center;
+    margin: 10px;
+}
+
+.footer {
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid grey;
+    background-color: #333333;
+    color: white;
+}
