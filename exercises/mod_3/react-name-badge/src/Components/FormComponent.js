@@ -83,13 +83,13 @@ return (
         </form> 
         <hr />
           <h2 style={ styles.header }>Badge</h2>
-          {/* <h3 style={{ color: "red" }}>{ props.data.message.length }</h3> */}
-          {/* <p style={ styles.paragraph }>Name: { props.data.firstName } { props.data.lastName }</p>
-          <p style={ styles.paragraph }>Place of Birth: { props.data.placeOfBirth }</p>
-          <p style= { styles.paragraph }>Email: { props.data.email }</p>
-          <p style= { styles.paragraph }>Phone: { props.data.phone }</p>
-          <p style= { styles.paragraph }>Favorite Food: { props.data.favoriteFood }</p>
-          <p style={ styles.about }>{ props.data.textArea }</p> */}
+          {/* <h3 style={{ color: "red" }}>{ props.data.message.length }</h3> } */}
+          {/* {<p style={ styles.paragraph }>Name: { props.data.firstName } { props.data.lastName }</p> */}
+          {/* <p style={ styles.paragraph }>Place of Birth: { props.data.placeOfBirth }</p> */}
+          {/* <p style= { styles.paragraph }>Email: { props.data.email }</p> */}
+          {/* <p style= { styles.paragraph }>Phone: { props.data.phone }</p> */}
+          {/* <p style= { styles.paragraph }>Favorite Food: { props.data.favoriteFood }</p> */}
+          {/* <p style={ styles.about }>{ props.data.textArea }</p> */}
 
       </main>
     )

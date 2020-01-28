@@ -1,7 +1,14 @@
-import React from "react"
+import React from 'react'
+import { ThemeConsumer } from './../userThemeContext'
 
 const Footer = () => (
-    <footer className="footer">My Awesome Footer</footer>
+    <ThemeConsumer>
+        {context => (
+            <footer className={ context.theme ? 'Light' : 'Dark' }>
+                My Awesome Footer
+            </footer>
+        )}
+    </ThemeConsumer>
 )
 
 export default Footer

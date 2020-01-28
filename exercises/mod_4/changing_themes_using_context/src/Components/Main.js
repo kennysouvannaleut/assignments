@@ -1,12 +1,16 @@
-import React from "react"
-import { ThemeConsumer } from "./../userThemeContext"
+import React from 'react'
+import { ThemeConsumer } from './../userThemeContext'
 
-const Main = (props) => (
-        <>
-        <main className="main"
-            buttonstyle={{backgroundColor: props.themeColor}}>
-        </main>
-        </>
+const Main = () => (
+    <ThemeConsumer>
+        {context => (
+            <main>
+                <h2 className={ context.theme ? 'Light' : 'Dark' }>
+                Click the button to toggle the { context.theme ? 'Dark' : 'Light' } Theme!
+                </h2>
+            </main>
+        )}
+    </ThemeConsumer>
 )
 
 export default Main

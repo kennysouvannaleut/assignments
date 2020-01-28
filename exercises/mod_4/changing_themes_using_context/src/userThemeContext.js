@@ -1,22 +1,24 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 
 const { Provider, Consumer } = React.createContext()
 
 class ThemeProvider extends Component {
     state = {
-        theme: "dark"
+        theme: true
     }
 
-    changeTheme = (theme) => {
-        this.setState({
-            theme
+    toggleTheme = () => {
+        this.setState(prevState => {
+            return {
+                theme: !prevState.theme 
+            }
         })
     }
 
     render() {
         const { theme } = this.state
         return (
-                <Provider value={{ theme, changeTheme: this.changeTheme }}>
+                <Provider value={{ theme, toggleTheme: this.toggleTheme }}>
                     { this.props.children }
                 </Provider>
         )

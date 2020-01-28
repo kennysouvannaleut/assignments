@@ -1,15 +1,12 @@
-import React from "react"
-import { ThemeConsumer } from "./../userThemeContext"
+import React from 'react'
+import { ThemeConsumer } from './../userThemeContext'
 
 const Button = () => (
-    <div>
         <ThemeConsumer>
-            {({changeTheme}) => (
-                <button className="Button" onClick={() => changeTheme(this.changeTheme) } >Toggle Theme</button>
+            {( { toggleTheme, theme } ) => (
+                <button onClick={ toggleTheme } className={ theme ? 'Light' : 'Dark' }>Toggle Theme</button>
             )}
         </ThemeConsumer>
-    </div>
 )
-
 
 export default Button
