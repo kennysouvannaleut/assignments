@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { UglyThingContext } from '../context/UglyThingContext';
+import { UglyThingContext } from '../contexts/UglyThingContext';
 
 const UglyThingForm = () => {
     const { addUglyThing } = useContext(UglyThingContext);
@@ -24,7 +24,7 @@ const UglyThingForm = () => {
                 onChange={(e) => setDescription(e.target.value)} />
                 <br />
                 <br />
-            <button>Submit</button>
+                <button>Submit</button>
         </form>
     );
 }

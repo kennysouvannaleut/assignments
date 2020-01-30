@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { UglyThingContext } from '../context/UglyThingContext';
+import { UglyThingContext } from '../contexts/UglyThingContext';
 import UglyThingDetails from './UglyThingDetails';
 
 const UglyThingList = () => {

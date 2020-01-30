@@ -3,13 +3,5 @@ import ReactDOM from 'react-dom';
 import './styles.css';
 import App from './App';
 
-// import { UserContextProvider } from './userContext'
-// import { ThemeContextProvider } from './contexts/ThemeContext';
-
-ReactDOM.render(
-    // <ThemeContextProvider>
-        <App />,
-    // </ThemeContextProvider>, 
-    document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
 
