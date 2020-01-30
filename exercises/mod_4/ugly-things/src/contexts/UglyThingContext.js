@@ -13,6 +13,7 @@ const UglyThingContextProvider = (props) => {
     const removeUglyThing = (index) => {
         setUglyThings(uglyThings.filter(uglyThing => uglyThing.index !== index))
     }
+    // const edit
     return (
         <UglyThingContext.Provider value={{ uglyThings, addUglyThing, removeUglyThing }}>
             { props.children }

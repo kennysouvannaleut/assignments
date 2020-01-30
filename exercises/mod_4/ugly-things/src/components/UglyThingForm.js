@@ -8,7 +8,7 @@ const UglyThingForm = () => {
     const [description, setDescription] = useState('');
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(title, imgUrl, description);
+        console.log(title, imgUrl, description);
         addUglyThing(title, imgUrl, description);
         setTitle('');
         setImgUrl('');
