@@ -1,24 +1,31 @@
 import React, { Component } from 'react'
 
-const { Provider, Consumer } = React.createContext()
+// const { Provider, Consumer } = React.createContext()
 
 class UserContextProvider extends Component {
     state = {
-        uglyThings: []
+        uglyThing: []
     }
 
-    updatedUglyThing = () => {
-        this.setState({ uglyThings })
+    changeUglyThing = (e) => {
+        e.preventDefault()
+        this.setState(prevState => {
+            const { uglyThing } = prevState
+            const updatedUglyThing = { uglyThing }
+            return {
+                uglyThing: [...prevState.uglyThing, updatedUglyThing]
+            }
+        })
     }
 
-    render(){
-        const { uglyThings } = this.state
+    render() {
+        const { uglyThing } = this.state
         return (
-            <Provider value={{ uglyThings,  updatedUglyThing: this.updatedUglyThing }} >
-            { this.props.children }
+            <Provider value={{ uglyThing, changeUglyThing: this.changeUglyThing }} >
+                { this.props.children }
             </Provider>
         )
     }
 }
 
-export { UserContextProvider, Consumer as UserContextConsumer }
+// export { UserContextProvider, Consumer as UserContextConsumer }

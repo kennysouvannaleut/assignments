@@ -18,9 +18,9 @@ class ThemeProvider extends Component {
     render() {
         const { theme } = this.state
         return (
-                <Provider value={{ theme, toggleTheme: this.toggleTheme }}>
-                    { this.props.children }
-                </Provider>
+            <Provider value={{ theme, toggleTheme: this.toggleTheme }}>
+                { this.props.children }
+            </Provider>
         )
     }
 }

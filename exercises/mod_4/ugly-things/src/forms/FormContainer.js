@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import FormComponent from './FormComponent'
-import { UserContextConsumer } from './../userContext'
+// import UserForm from './UserForm'
+// import { UserContextConsumer } from './userContext'
 
 class Form extends Component {
     state = {
         title: '',
-        imgURL: '',
+        imgUrl: '',
         description: '',
-        uglyThings: []
+        newUglyThing: []
     }
 
     handleChange = (e) => {
@@ -21,19 +21,18 @@ class Form extends Component {
         e.preventDefault()
         this.setState(prevState => {
             const { title, imgURL, description } = prevState
-            const uglyThing = { title, imgURL, description }
+            const updatedUglyThing = { title, imgURL, description }
             return {
-                ...prevState.uglyThings
+                newUglyThing: [...prevState.newUglyThing, updatedUglyThing]
             }
         })
     }
 
-    render(){
-        // console.log(this.state)
-        const mappedUglyThings = this.state.uglyThings.map(uglyThing => 
+    render() {
+        const mappedUglyThings = this.state.newUglyThing.map(uglyThing => 
             <>
                 <p>Title: { uglyThing.title }</p>
-                <p>Img URL: { uglyThing.imgURL }</p>
+                <p>Img URL: { uglyThing.imgUrl }</p>
                 <p>Description: { uglyThing.description }</p>
             </>
         )
@@ -41,14 +40,13 @@ class Form extends Component {
             <div>
                 { mappedUglyThings }
                 <UserContextConsumer>
-                    { updatedUglyThing} => (
-                        <FormComponent 
-                        handleChange={ this.handleChange }
-                        handleSubmit={ this.handleSubmit }
-                        data={ this.state }
-                        />
-                        <button onClick={() => updatedUglyThing(this.state.updatedUglyThing)}>Submit</button>
-                    )}
+                    {( { changeUglyList, uglyThing })  => (
+                        <UserForm
+                            handleChange={ this.handleChange }
+                            handleSubmit={ this.handleSubmit }
+                            data={ this.state }
+                            />
+                        )}
                 </UserContextConsumer>
             </div>
         )
