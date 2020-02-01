@@ -1,16 +1,24 @@
-import React from 'react'
-import { ThemeConsumer } from './../userThemeContext'
+import React from 'react';
+import { ThemeContext } from '../contexts/ThemeContext';
 
-const Navbar = () => (
-        <ThemeConsumer>
-            {context => (
-                <nav className={ context.theme ? 'Light' : 'Dark' }>
-                    <ul>Home</ul>
-                    <ul>About</ul>
-                    <ul>Contact</ul>
-                </nav>
-                )}
-        </ThemeConsumer>
-)
-
-export default Navbar
+const Navbar = () => {
+    return ( 
+        <ThemeContext.Consumer>
+            {( themeContext ) => {
+                const { isLightTheme, light, dark } = themeContext;
+                const theme = isLightTheme ? light : dark;
+                return (
+                    <nav style={{ background: theme.ui, color: theme.hex }}>
+                        <ul>
+                            <li>Home</li>
+                            <li>About</li>
+                            <li>Contact</li>
+                        </ul>
+                    </nav>
+                )
+            }}
+        </ThemeContext.Consumer>
+     );
+}
+ 
+export default Navbar;
