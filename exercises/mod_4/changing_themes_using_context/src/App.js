@@ -6,14 +6,14 @@ import Footer from './components/Footer';
 import ThemeContextProvider from './contexts/ThemeContext';
 
 const App = () => (
-  <div className='App'>
-      <ThemeContextProvider>
-        <Navbar />
-        <Main />
-        <ThemeToggle />
-        <Footer />
-      </ThemeContextProvider>
-  </div>
+    <div className='App'>
+        <ThemeContextProvider>
+            <Navbar />
+            <Main />
+            <ThemeToggle />
+            <Footer />
+        </ThemeContextProvider>
+    </div>
 )
 
-export default App
+export default App;
