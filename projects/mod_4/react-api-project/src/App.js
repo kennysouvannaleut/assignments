@@ -6,17 +6,17 @@ import WeatherCityList from './pages/weather/WeatherCityList';
 import WeatherDetail from './pages/weather/WeatherDetail';
 import SavedCities from './pages/SavedCities';
 import { Switch, Route, Link } from 'react-router-dom';
-import { WeatherContext } from './contexts/WeatherContext';
+import { APIWeatherContext } from './contexts/APIWeatherContext';
 
 const App = () => (
     <div className = 'App'>
         <Header />
-        <WeatherContext.Provider>
-        {/* <nav>
+        <APIWeatherContext.Provider>
+        <nav>
             <Link to='/'>Home</Link>
             <Link to='/weather'>Day Forecast</Link>
             <Link to='/savedCities'>Saved Cities</Link>
-        </nav> */}
+        </nav>
 
         <Switch>
             <Route exact path='/'>
@@ -33,7 +33,7 @@ const App = () => (
             </Route>
         </Switch>
 
-        </WeatherContext.Provider>
+        </APIWeatherContext.Provider>
         <Footer />
     </div>
 );

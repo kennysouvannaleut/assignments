@@ -1,8 +1,8 @@
 import React, { createContext, useState } from 'react';
 
-export const WeatherContext = createContext();
+export const APIWeatherContext = createContext();
 
-const WeatherContextProvider = (props) => {
+const APIWeatherContextProvider = (props) => {
     const [forecast, setForecast] = useState('');
     const [typeOfDay, setTypeOfDay] = useState('');
     const [location, setLocation] = useState('');
@@ -15,10 +15,10 @@ const WeatherContextProvider = (props) => {
     setLocation('');
 
     return (
-        <WeatherContext.Provider value={{ forecast }}>
+        <APIWeatherContext.Provider value={{ forecast }}>
             { props.children }
-        </WeatherContext.Provider>
+        </APIWeatherContext.Provider>
     );
 };
 
-export default WeatherContextProvider;
+export default APIWeatherContextProvider;
