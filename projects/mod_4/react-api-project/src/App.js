@@ -2,35 +2,22 @@ import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import WeatherCityList from './pages/weather/WeatherCityList';
-import WeatherDetail from './pages/weather/WeatherDetail';
-import SavedCities from './pages/SavedCities';
-import { Switch, Route, Link } from 'react-router-dom';
+import WeatherAdvisory from './pages/weather/WeatherAdvisory';
+import WeatherDetails from './pages/weather/WeatherDetails';
+import Settings from './pages/weather/Settings';
+import { Switch, Route } from 'react-router-dom';
 import { APIWeatherContext } from './contexts/APIWeatherContext';
 
 const App = () => (
     <div className = 'App'>
         <Header />
         <APIWeatherContext.Provider>
-        <nav>
-            <Link to='/'>Home</Link>
-            <Link to='/weather'>Day Forecast</Link>
-            <Link to='/savedCities'>Saved Cities</Link>
-        </nav>
 
         <Switch>
-            <Route exact path='/'>
-                <Home />
-            </Route>
-            <Route exact path='/weather'>
-                <WeatherCityList />
-            </Route>
-            <Route exact path='/weather/:weatherId'>
-                <WeatherDetail />
-            </Route>
-            <Route exact path='/savedCities'>
-                <SavedCities />
-            </Route>
+            <Route exact path='/' component={ Home } />
+            <Route exact path='/weather' component={ WeatherAdvisory } />
+            <Route path='/weather/:weatherId' component={ WeatherDetails } />
+            <Route exact path='/settings' component={ Settings } />
         </Switch>
 
         </APIWeatherContext.Provider>
