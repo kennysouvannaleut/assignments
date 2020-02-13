@@ -6,16 +6,8 @@ import Form from './components/Form';
 import Weather from './pages/weather/Weather';
 import WeatherContextProvider from './contexts/WeatherContext';
 
-const styles = {
-  background: '#333',
-  maxWidth: '700',
-  color: 'whitesmoke',
-  fontFamily: 'sans-serif',
-  textAlign: 'center'
-};
-
 const App = () => (
-  <div style={ styles }>
+  <div className='App'>
     <WeatherContextProvider>
       <Navbar />
       <Header />
