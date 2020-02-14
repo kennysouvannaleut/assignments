@@ -44,15 +44,16 @@ header li a:visited {
 footer {
     padding: 2px;
     min-height: 100px;
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: #EEEEEE;
+    background: whitesmoke;
     font-size: small;
     text-align: center ;
 }
 
-footer p {
+/* footer p {
     position: absolute;
     bottom: 0;
     background-color: #333333;
@@ -61,4 +62,4 @@ footer p {
     width: 100%;
     color: whitesmoke;
     font-size: 12px;
-}
+} */

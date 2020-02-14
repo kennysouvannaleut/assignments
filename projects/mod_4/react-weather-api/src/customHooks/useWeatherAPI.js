@@ -5,7 +5,7 @@ import axios from 'axios';
 // const URL='https://api.openweathermap.org/data/2.5/weather?q=Salt Lake City&units=metric&apikey={KEY}';
 // https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&units=metric&apikey="+key
 
-const WeatherForecast = () => {
+const useWeatherAPI = () => {
     const [data, setData] = useState({});
     const [id, setId] = useState('');
 
@@ -29,7 +29,7 @@ const WeatherForecast = () => {
     );
 }
 
-export default WeatherForecast;
+export default useWeatherAPI;
 
 
   

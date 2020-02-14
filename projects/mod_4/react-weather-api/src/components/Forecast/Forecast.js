@@ -29,7 +29,7 @@ export const Forecast = () => {
             setIsLoading(true);
 
             try {
-                const response = await axios(API_URL);
+                const response = await axios('https://api.openweathermap.org/data/2.5/weather?q=salt+lake+city&units=metric&apikey=b389f068ef3425ee9bec50d5a6d6712d');
                 setData(response.data);
                 // const response = await fetch(url);
                 // const data = await response.json();
@@ -52,7 +52,7 @@ export const Forecast = () => {
             {/* <h2>Find Current Weather Conditions</h2>
             <div>{ response.obj }</div>
             <button onClick={ getForecast }>Get Forecast</button> */}
-            [{ data, isLoading, isError }, setUrl]
+            { data, isLoading, isError }
             <button onClick={ () => setWeatherId(weatherId + 1) }>Search by City</button>
             { isLoading ? <div>...loading</div> : <div>{ data.name }</div> }
         </div>
