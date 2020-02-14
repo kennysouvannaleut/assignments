@@ -6,8 +6,7 @@ const Header = () => (
         <ul>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/weather'>Weather</Link></li>
-            <li><Link to='/conditions'>Weather Conditions</Link></li>
-            <li><Link to='/savedCities'>Saved Cities</Link></li>
+            <li><Link to='/savedCities'>Profile</Link></li>
         </ul>
     </header>
 );
