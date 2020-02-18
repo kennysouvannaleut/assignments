@@ -1,0 +1,17 @@
+Your proposal must contain the following:
+
+[1].Paragraph describing your app idea. What are you building? Who is it for?
+
+Basic weather app where users can request weather updates from any given city or country of their choice.
+
+[2].User Stories. What is a user going to do when they go to your site from the time they hit the landing page? What features do they need and which are optional?
+
+Users will be able to immediately search current weather conditions for their locations which will display weekly forecast and daily forecast of any given location. Users can also save these locations for future reference and data will still be current.
+
+[3].Wireframe. What is each page going to look like? What will be the layout, color scheme, etc? Check out wireframe.cc for a simple and free wireframing tool. 
+
+Basic styling, simple layout and neutral colors will be used throughout the page. Landing page with an image and a search bar for users input to search by location/country. Other page will include more detailed/historical view of weather conditions along with a saved cities page view to display users favorited cities for users to gain easy access.
+
+[4].Mind Map. What is the folder structure of your frontend app going to look like? Make a diagram representing its component hierarchy.
+
+Form/Input which will take props as a parameter and pass it to API calls/data from App container and other similar componets and lifecycle methods like userEffect to fetch data and handle errors, etc...

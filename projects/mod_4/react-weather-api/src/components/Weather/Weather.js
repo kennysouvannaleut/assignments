@@ -1,13 +1,12 @@
 import React from 'react';
 
-const weather = props => (
+const Weather = ({city, country, description, temperature, error}) => (
     <div>
-        { props.country && props.city && <p>Location: { props.city }, { props.country }</p>}
-        { props.temperature && <p>Temperature: { props.temperature }</p>}
-        { props.humidity && <p>Humidity: { props.humidity }</p>}
-        { props.description && <p>Description: { props.description }</p>}
-        { props.error && <p>{ props.error }</p>}
+        {city && country && <p>{city}, {country}</p>}
+        {temperature && <p>{temperature}</p>}
+        {description && <p>{description}</p>}
+        {error && <p>{error}</p>}
     </div>
 );
 
-export default weather;
+export default Weather;
