@@ -8,7 +8,7 @@ const Resume = () => (
         <ul>
             <li>Bachelors of Science in Communications</li>
         </ul>
-        <h2>Work History</h2>
+        <h2>Work Experience</h2>
         <h3>American Express - Business Analyst</h3>
         <ul>
             <li>...</li>
@@ -16,7 +16,7 @@ const Resume = () => (
             <li>...</li>
             <li>...</li>
         </ul>
-        <h2>Skills</h2>
+        <h2>Skills-Knowledge-Abilities</h2>
         <ul>
             <li>React</li>
             <li>Vanilla Javascript</li>

@@ -4,19 +4,27 @@
 
 .App {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto'
 }
 
 body {
   background: black;
-  color: white;
+  color: #B3B322;
   text-align: center;
-}
-
-h2 {
-  font-Size: 100px;
 }
 
 li {
   list-style-type: none;
+}
+
+h2 {
+  font-size: 70px;
+}
+
+@media all and (max-width: 1000px)
+  and (min-width: 520px) {
+    body {
+      width: 50%;
+      font-size: 15px;
+    }
 }

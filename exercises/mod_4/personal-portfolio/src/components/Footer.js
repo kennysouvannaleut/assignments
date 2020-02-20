@@ -12,7 +12,7 @@ const Footer = () => {
         textAlign: 'center'
     };
 
-    return(
+    return (
         <footer style={footerStyle}>©2020 - Kenny Souvannaleut</footer>
     );
 };

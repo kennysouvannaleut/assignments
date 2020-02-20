@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const NavTab = (props) => {
     const activeStyle = {
-        color: 'blue',
+        color: '#B3B322',
         fontWeight: 'bold'
     };
 

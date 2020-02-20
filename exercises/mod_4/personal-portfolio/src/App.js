@@ -13,11 +13,11 @@ const App = () => (
   <div className='App'>
     <div className='App-nav'>
       <NavBar />
-      <div>
+      <div className='App-sub'>
         <DevIcons />
       </div>
     </div>
-
+  <div className='App-main'>
     <Switch>
       <Redirect exact path='/' to='/about' />
       <Route path='/about' component={About} />
@@ -26,10 +26,12 @@ const App = () => (
       <Route path='/contact' component={Contact} />
       <Route component={Error} />
     </Switch>
-
+  </div>
+  <div className='App-footer'>
     <footer>
         <Footer />
     </footer>
+    </div>
   </div>
 );
 
