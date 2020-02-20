@@ -1,45 +1,13 @@
 import React from 'react';
-import DevIcon from 'devicon-react-svg';
+import NavTab from './NavTab';
 
-const Navbar = () => (
-    <>
-        <DevIcon 
-            className='icon' 
-            icon='github_badge'
-        />
-        <DevIcon 
-            className='icon' 
-            icon='react'
-        />
-        <DevIcon 
-            className='icon' 
-            icon='mysql'
-        />
-        <DevIcon 
-            className='icon' 
-            icon='sqllite'
-        />
-        <DevIcon 
-            className='icon' 
-            icon='nodejs_small'
-        />
-        <DevIcon 
-            className='icon' 
-            icon='html5'
-        />
-        <DevIcon 
-            className='icon' 
-            icon='css3'
-        />
-        <DevIcon 
-            className='icon' 
-            icon='database'
-        />
-        <DevIcon 
-            className='icon' 
-            icon='linux'
-        />
-    </>
+const NavBar = () => (
+        <nav>
+            <NavTab to='/about' label='About' />
+            <NavTab to='/resume' label='Resume' />
+            <NavTab to='/projects' label='Projects' />
+            <NavTab to='/contact' label='Contact' />
+        </nav>
 );
 
-export default Navbar;
+export default NavBar;

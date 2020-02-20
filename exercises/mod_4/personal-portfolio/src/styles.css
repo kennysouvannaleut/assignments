@@ -5,35 +5,14 @@
 .App {
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  text-align: center;
 }
 
 body {
-  display: flex;
-  align-items: center;
-  flex-direction: center;
   background: black;
   color: white;
 }
 
-.nav-sub {
-  text-align: center;
-  text-decoration: none;
-  flex-direction: column;
-}
-
-.item {
-  font-size: 18px;
-  text-align: center;
-  display: grid;
-}
-
-.icon {
-  fill: #b3b322;
-  width: 4em;
-}
-
-h1, h2 {
-  font-size: 100pt;
-  text-emphasis: none;
-  font-weight: 100;
+h2 {
+  font-Size: 100px;
 }

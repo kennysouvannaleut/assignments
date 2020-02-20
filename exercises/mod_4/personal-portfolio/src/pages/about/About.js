@@ -1,9 +1,9 @@
 import React from 'react';
 
 const About = () => (
-    <div>
-        <h1>Hi! Its Kenny, Im a Full Stack JavaScript Web Developer.</h1>
-    </div>
+    <>
+        <h2>Hi! My name is Kenny Souvannaleut and I am a Full Stack JavaScript Developer.</h2>
+    </>
 );
 
 export default About;

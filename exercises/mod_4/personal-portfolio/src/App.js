@@ -1,29 +1,34 @@
 import React from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import About from './pages/about/About';
-import Resume from './pages/resume/Resume';
+// import Resume from './pages/resume/Resume';
 import Projects from './pages/projects/Projects';
-import Navbar from './components/Navbar';
-import { Route, Link } from 'react-router-dom';
+import Contact from './pages/contact/Contact';
+import NavBar from './components/NavBar';
+import DevIcons from './components/DevIcons';
+import Error from './components/Error';
+import Footer from './components/Footer';
 
 const App = () => (
   <div className='App'>
-
-    <Route exact path='/' component={ About } />
-    <Route exact path='/resume' component={ Resume }/>
-    <Route exact path='/projects' component={ Projects } />
-
-  <div className='nav-bar'>
-    <div className='nav-sub'>
-      <Navbar />
+    <div className='App-nav'>
+      <NavBar />
+      <div>
+        <DevIcons />
+      </div>
     </div>
 
-    <Link to='/' className='item'>About</Link>
-    <Link to='/resume' className='item'>Resume</Link>
-    <Link to='/projects' className='item'>Projects</Link>
+    <Switch>
+      <Redirect exact path='/' to='/about' />
+      <Route path='/about' component={About} />
+      {/* <Route path='/resume' component={Resume} /> */}
+      <Route path='/projects' component={Projects} />
+      <Route path='/contact' component={Contact} />
+      <Route component={Error} />
+    </Switch>
 
-    </div>
-    <footer className='App-footer'>
-      Contact Info: 
+    <footer>
+        <Footer />
     </footer>
   </div>
 );
