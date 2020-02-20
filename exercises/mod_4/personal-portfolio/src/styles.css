@@ -5,14 +5,18 @@
 .App {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  text-align: center;
 }
 
 body {
   background: black;
   color: white;
+  text-align: center;
 }
 
 h2 {
   font-Size: 100px;
+}
+
+li {
+  list-style-type: none;
 }

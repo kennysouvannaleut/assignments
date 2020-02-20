@@ -4,7 +4,8 @@ import DevIcon from 'devicon-react-svg';
 const DevIcons = () => {
     const iconStyle = {
         fill: '#B3B322',
-        width: '4em'
+        width: '4em',
+        marginTop: 25
     };
 
     return (
