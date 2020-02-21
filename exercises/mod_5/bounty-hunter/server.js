@@ -1,10 +1,10 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const port = process.env.PORT || 9000;
+const port = process.env.port || 8000;
 
 app.use(express.json());
 
-app.use("/bounty", require("./routes/bountyRoutes"));
+app.use('/bounty', require('./routes/bountyRoutes'));
 
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
