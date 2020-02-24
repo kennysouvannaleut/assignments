@@ -1,4 +1,4 @@
-const express = ("express");
+const express = require("express");
 const app = express();
 
 // body-parser helps Express interpret different kinds of Content-Types that come in the body of a request object. So if you ever need to POST or PUT, you'll likely need to use the "body-parser" middleware
