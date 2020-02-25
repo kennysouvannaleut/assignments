@@ -25,7 +25,6 @@ todosRouter.route('/')
         res.send(`Successfully added ${todos.name} to the list!`)
         next();
     });
-
     
     todosRouter.route('/:todoId')
         .get((req, res) => {            /* retreive single todo item from list */
@@ -47,15 +46,15 @@ todosRouter.route('/')
             res.send(`Successfully deleted ${todos.name} from the todos list`)
         });
 
-    // bountyRouter.route('/:bountyId')
+    // todosRouter.route('/:todoId')
 //     .get((req, res) => {
-//         res.send(`GET on /bounty/${req.params.bountyId} endpoint`);
+//         res.send(`GET on /todos/${req.params.todoId} endpoint`);
 //     })
 //     .put((req, res) => {
-//         res.send(`PUT on /bounty/${req.params.bountyId} endpoint`);
+//         res.send(`PUT on /todos/${req.params.todoId} endpoint`);
 //     })
 //     .delete((req, res) => {
-//         res.send(`DELETE on /bounty/${req.params.bountyId} endpoint`);
+//         res.send(`DELETE on /todos/${req.params.todoId} endpoint`);
 // });
 
 module.exports = todosRouter;
