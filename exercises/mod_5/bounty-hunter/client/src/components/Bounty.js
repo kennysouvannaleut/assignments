@@ -11,7 +11,7 @@ const Bounty = (props) => {
             { !editToggle ?
                 <>
                     <h3>Name: { firstName } { lastName }</h3>
-                    <p>Living: { living ? 'YEAH' : 'NAH' }</p>
+                    <p>Living: { !living ? 'YEAH' : 'NAH' }</p>
                     <p>Bounty Amount: ${ bounty }</p>
                     <p>Type: { type }</p>
                     <button 

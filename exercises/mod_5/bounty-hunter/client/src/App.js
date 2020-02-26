@@ -53,7 +53,7 @@ const App = () => {
                     bounties.map(bounty => 
                         <Bounty 
                             {...bounty} 
-                            key={ bounty.firstName } 
+                            key={ bounty.firstName }
                             deleteBounty={ deleteBounty }
                             editBounty={ editBounty }
                     />)
