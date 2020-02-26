@@ -22,3 +22,14 @@
 
     # The "next" function
         * Moves on the middleware in line our server.
+
+# Console Errors in Express
+
+    # Use A Logger
+        * npm install morgan
+
+# Connecting the Frond-end to the Back-end
+
+    # Folder Structure 
+    # Proxy => (i.e., "proxy": "http:localhost:9000")
+

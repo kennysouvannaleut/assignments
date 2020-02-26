@@ -4,10 +4,26 @@ const uuid = require("uuid/v4");
 
 // FAKE DATA
 const movies = [
-    { title: "die hard", genre: "action", _id: uuid() },
-    { title: "star wars IV", genre: "fantasy", _id: uuid() },
-    { title: "lion king", genre: "fantasy", _id_: uuid() },
-    { title: "friday the 13th", genre: "horror", _id: uuid() }
+    { 
+        title: "die hard", 
+        genre: "action", 
+        _id: uuid() 
+    },
+    { 
+        title: "star wars IV", 
+        genre: "fantasy", 
+        _id: uuid() 
+    },
+    { 
+        title: "lion king", 
+        genre: "fantasy", 
+        _id: uuid() 
+    },
+    { 
+        title: "friday the 13th", 
+        genre: "horror", 
+        _id: uuid() 
+    }
 ];
 
 // GET ALL
@@ -57,3 +73,19 @@ movieRouter.delete("/:movieId", (req, res) => {
 });
 
 module.exports = movieRouter;
+
+// app.use((req, res, next) => {
+//     console.log("THIS LINE IS CALLED FOR EVERY SINGLE REQUEST INTO THIS SERVER, NO MATTER TO WHICH ENDPOINT")
+//     next();
+// });
+
+// app.use("/items", (req, res, next) => {
+//     req.body = {name: "Rick"}
+//     next();
+// });
+
+// app.get("/items", (req, res, next) => {
+//     console.log("GET REQUEST RECEVIED")
+//     res.send(req.body)
+// });
+

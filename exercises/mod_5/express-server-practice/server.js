@@ -1,37 +1,19 @@
 const express = require("express");
 const app = express();
+const morgan = require("morgan")
 
-// body-parser helps Express interpret different kinds of Content-Types that come in the body of a request object. So if you ever need to POST or PUT, you'll likely need to use the "body-parser" middleware
-const bodyParser = require("body-parser");
+// Middleware (for every request) //
+app.use(express.json())     /* Looks for a request body, and turns it into "req.body" */
+app.use(morgan("dev"))     /* Logs requests to the console" */
 
-// bodyParser.json() parses request bodies with a Content-Type header set to "application/json", meaning it can now read and interpret JSON.
-app.use(bodyParser.json());
+// Routes //
+app.use("/movies", require("./routes/movieRouter"))
 
-// bodyParser.urlencoded() parses data that comes in with a Content-Type of application/x-www-form-urlencoded, which is what data comes in as when you use an HTML <form> to submit data.
-app.use(bodyParser.urlencoded({extended: true}));
-
-app.use((req, res, next) => {
-    console.log("THIS LINE IS CALLED FOR EVERY SINGLE REQUEST INTO THIS SERVER, NO MATTER TO WHICH ENDPOINT")
-    next();
-});
-
-app.use("/items", (req, res, next) => {
-    console.log("THE ITEMS MIDDLEWARE WAS EXECUTED")
-    next();
-});
-
-app.use("/items", (req, res, next) => {
-    req.body = {name: "Rick"}
-    next();
-});
-
-app.get("/items", (req, res, next) => {
-    console.log("GET REQUEST RECEVIED")
-    res.send(req.body)
-});
-
+// Server listen //
 const port = process.env.PORT || 9000
 app.listen(port, () => {
     console.log(`Express app is listening on port ${port}`);
 });
+
+
 

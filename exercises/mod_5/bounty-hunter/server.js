@@ -1,18 +1,19 @@
 const express = require('express');
+const morgan = require('morgan');
 const app = express();
-const port = process.env.port || 8000;
 
 app.use(express.json());
+app.use(morgan('dev'));
 
-app.use('/bounty', require('./routes/bountyRoutes'));
+app.use('/bounties', require('./routes/bountyRouter'));
 
-// error handling - catch 404 and forward response to error handler
-app.use(function(err, req, res, next) {
-    const err = new Error('Not Found');
+app.use(function(req, res, next) {
+    const err = new Error('Item Not Found');
     err.status = 404;
-    next(error);
-})
+    next(err);
+});
 
-app.listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
+const port = process.env.PORT || 8000;
+    app.listen(port, () => {
+    console.log(`Express app is running on port ${port}`);
 });

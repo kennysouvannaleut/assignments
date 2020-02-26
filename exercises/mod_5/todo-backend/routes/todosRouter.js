@@ -46,15 +46,4 @@ todosRouter.route('/')
             res.send(`Successfully deleted ${todos.name} from the todos list`)
         });
 
-    // todosRouter.route('/:todoId')
-//     .get((req, res) => {
-//         res.send(`GET on /todos/${req.params.todoId} endpoint`);
-//     })
-//     .put((req, res) => {
-//         res.send(`PUT on /todos/${req.params.todoId} endpoint`);
-//     })
-//     .delete((req, res) => {
-//         res.send(`DELETE on /todos/${req.params.todoId} endpoint`);
-// });
-
 module.exports = todosRouter;
