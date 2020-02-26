@@ -33,3 +33,12 @@
     # Folder Structure 
     # Proxy => (i.e., "proxy": "http:localhost:9000")
 
+# Status Codes
+
+    # 200 - Successful Request
+    # 201 - Successful Insert / Successful Update
+    # 401 - Unathorized
+    # 404 - Not Found
+    # 500 - Server Error
+    
+    # https://http.cat

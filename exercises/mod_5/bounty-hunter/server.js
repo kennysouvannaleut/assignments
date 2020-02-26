@@ -7,10 +7,9 @@ app.use(morgan('dev'));
 
 app.use('/bounties', require('./routes/bountyRouter'));
 
-app.use(function(req, res, next) {
-    const err = new Error('Item Not Found');
-    err.status = 404;
-    next(err);
+app.use((err, req, res, next) => {
+    console.log(err);
+    res.send({ errMsg: err.message })
 });
 
 const port = process.env.PORT || 8000;
