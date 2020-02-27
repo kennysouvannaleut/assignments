@@ -5,7 +5,7 @@ const Form = (props) => {
         firstName: props.firstName || '', 
         lastName: props.lastName || '', 
         living: props.living || '', 
-        bounty: props.bounty || '', 
+        bountyAmount: props.bountyAmount || '', 
         type: props.type || '' 
     };
     const [inputs, setInputs] = useState(initalInputs);
@@ -45,8 +45,8 @@ const Form = (props) => {
 
         <input 
             type='number' 
-            name='bounty' 
-            value={ inputs.bounty } 
+            name='bountyAmount' 
+            value={ inputs.bountyAmount } 
             onChange={ handleChange } 
             placeholder='Bounty Amount'
         />
@@ -58,8 +58,8 @@ const Form = (props) => {
             onChange={ handleChange }
         >
             <option value=''>-- PLEASE CHOOSE TYPE --</option>
-            <option value='sith'>Sith</option>
-            <option value='jedi'>Jedi</option>
+            <option value='Sith'>Sith</option>
+            <option value='Jedi'>Jedi</option>
         </select>
 
         <select
@@ -67,7 +67,7 @@ const Form = (props) => {
             value={ inputs.living }
             onChange={ handleChange }
         >
-            <option value=''>-- LIVING? --</option>
+            <option value=''>-- LIVING ? --</option>
             <option value=''>Yeah!</option>
             <option value=''>Nah!</option>
         </select>

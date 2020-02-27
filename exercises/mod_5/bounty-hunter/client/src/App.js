@@ -7,13 +7,13 @@ const App = () => {
     const [bounties, setBounties] = useState([]);
 
     const getBounties = () => {
-        axios.get('/bounties')
+        axios.get('/bounty')
             .then(res => setBounties(res.data))
             .catch(err => console.log(err.response.data.errMsg))
     };
 
     const addBounty = (newBounty) => {
-        axios.post('/bounties', newBounty)
+        axios.post('/bounty', newBounty)
             // .then(res => console.log(res))
             // .catch(err => console.log(err))
             .then(res => {
@@ -23,7 +23,7 @@ const App = () => {
     };
 
     const deleteBounty = (bountyId) => {
-        axios.delete(`/bounties/${bountyId}`)
+        axios.delete(`/bounty/${bountyId}`)
             .then(res => {
                 setBounties(prevBounties => prevBounties.filter(bounty => bounty._id !== bountyId))
             })
@@ -31,7 +31,7 @@ const App = () => {
     };
 
     const editBounty = (updates, bountyId) => {
-        axios.put(`/bounties/${bountyId}`, updates)
+        axios.put(`/bounty/${bountyId}`, updates)
             .then(res => {
                 setBounties(prevBounties => prevBounties.map(bounty => bounty._id !== bountyId ? bounty : res.data))
             })
@@ -42,7 +42,7 @@ const App = () => {
         if(e.target.value === 'reset') {
             getBounties()
         } else {
-            axios.get(`/bounties/search/type?type=${ e.target.value }`)
+            axios.get(`/bounty/search/type?type=${ e.target.value }`)
                 .then(res => setBounties(res.data))
                 .catch(err => console.log(err))
         }
@@ -62,11 +62,11 @@ const App = () => {
                 />
 
                 <h4>Filter by Type</h4>
-                <Select onChange={ handleFilter } className='filter-form'>
+                <select onChange={ handleFilter } className='filter-form'>
                     <option value='reset'>All Types</option>
-                    <option value='jedi'>Jedi</option>
-                    <option value='sith'>Sith</option>
-                </Select>
+                    <option value='Jedi'>Jedi</option>
+                    <option value='Sith'>Sith</option>
+                </select>
 
                 { 
                 bounties.map(bounty => 

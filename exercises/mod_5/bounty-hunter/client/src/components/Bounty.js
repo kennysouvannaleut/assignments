@@ -3,7 +3,7 @@ import Form from './Form';
 
 const Bounty = (props) => {
     // console.log(props)
-    const { firstName, lastName, living, bounty, type, _id } = props;
+    const { firstName, lastName, living, bountyAmount, type, _id } = props;
     const [editToggle, setEditToggle] = useState(false);
 
     return (
@@ -11,8 +11,8 @@ const Bounty = (props) => {
             { !editToggle ?
                 <>
                     <h3>Name: { firstName } { lastName }</h3>
-                    <p>Living: { !living ? 'YEAH' : 'NAH' }</p>
-                    <p>Bounty Amount: ${ bounty }</p>
+                    <p>Living: { !living ? 'YEAH!' : 'NAH!' }</p>
+                    <p>Bounty Amount: ${ bountyAmount }</p>
                     <p>Type: { type }</p>
                     <button 
                         className='delete-btn'
@@ -31,7 +31,7 @@ const Bounty = (props) => {
                         firstName={ firstName } 
                         lastName={ lastName }
                         living={ living }
-                        bounty={ bounty }
+                        bountyAmount={ bountyAmount }
                         type={ type }
                         _id={ _id }
                         btnText='Submit Edit'
