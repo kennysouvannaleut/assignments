@@ -58,8 +58,8 @@ const Form = (props) => {
             onChange={ handleChange }
         >
             <option value=''>-- PLEASE CHOOSE TYPE --</option>
-            <option value='Sith'>Sith</option>
-            <option value='Jedi'>Jedi</option>
+            <option value='sith'>Sith</option>
+            <option value='jedi'>Jedi</option>
         </select>
 
         <select

@@ -42,3 +42,24 @@
     # 500 - Server Error
     
     # https://http.cat
+
+# MongoDB Overview
+
+    # Two types of database structures
+        * Relational (SQL) / Comprised of a number of tables
+        * Non-Relational (NoSQL) / Collection of documents
+
+# Introduction to Mongoose
+
+    # Purpose 
+        * Create models
+        * Query data
+
+    # Connect
+
+    # Mongoose Schemas
+        * Blueprints for the data
+
+    # Mongoose Models
+        * Models have a Name, and a Blueprint (Schema)
+        * Models are used tp perform the CRUD operations on data created with the Model
