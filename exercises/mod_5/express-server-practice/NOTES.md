@@ -56,6 +56,7 @@
         * Query data
 
     # Connect
+        * npm install mongoose
 
     # Mongoose Schemas
         * Blueprints for the data
