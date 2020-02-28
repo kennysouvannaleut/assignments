@@ -4,7 +4,7 @@ const port = process.env.port || 9000;
 
 app.use(express.json());
 
-app.use('/inventoryItem', require('./routes/inventoryRouter'));
+app.use('/inventoryItem', require('./routes/inventoryRoutes'));
 
 app.use(function(req, res, next) {
     const err = new Error('Not Found')

@@ -1,5 +1,5 @@
 const express = require('express'); 
-const inventoryRouter = express.Router();
+const inventoryRoutes = express.Router();
 const uuid = require('uuid/v4');
 
 const inventoryItems = [
@@ -41,23 +41,23 @@ const inventoryItems = [
     }
 ]
 
-inventoryRouter.get('/', (req, res) => {
+inventoryRoutes.get('/', (req, res) => {
     // console.log(req)
     res.send(inventoryItems)
 })
 
-inventoryRouter.get('/:itemId', (req, res) => {
+inventoryRoutes.get('/:itemId', (req, res) => {
     // console.log(req.params)
     const itemId = req.params.itemId;
     const foundItem = inventoryItems.find(obj => obj._id === itemId);
     res.send(foundItem)
 })
 
-inventoryRouter.get('/search/name', (req, res) => {
+inventoryRoutes.get('/search/name', (req, res) => {
     // console.log(req.query)
     const name = req.query.name;
     const filteredItems = inventoryItems.filter(obj => obj.name === name);
     res.send(filteredItems)
 })
 
-module.exports = inventoryRouter;
+module.exports = inventoryRoutes;

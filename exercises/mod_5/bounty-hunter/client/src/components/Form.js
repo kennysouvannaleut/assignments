@@ -67,11 +67,10 @@ const Form = (props) => {
             value={ inputs.living }
             onChange={ handleChange }
         >
-            <option value=''>-- LIVING ? --</option>
-            <option value=''>Yeah!</option>
-            <option value=''>Nah!</option>
+            <option value=''>-- PLEASE CHOOSE ONE --</option>
+            <option value='yes'>Yes</option>
+            <option value='no'>No</option>
         </select>
-        <br />
 
         <button>{ props.btnText }</button>
     </form>

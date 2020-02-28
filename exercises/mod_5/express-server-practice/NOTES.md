@@ -49,6 +49,13 @@
         * Relational (SQL) / Comprised of a number of tables
         * Non-Relational (NoSQL) / Collection of documents
 
+    # Operators
+        * $inc
+        * $regex
+        * $pull
+        * where
+        * exec
+
 # Introduction to Mongoose
 
     # Purpose 
@@ -64,3 +71,46 @@
     # Mongoose Models
         * Models have a Name, and a Blueprint (Schema)
         * Models are used tp perform the CRUD operations on data created with the Model
+
+# Git Collaboration
+
+    # git branch
+    # git checkout
+    # git merge
+
+# Start the Repo, clone master
+
+    1. Create git respository on github
+    2. Connect/clone locally
+    3. Set up the code base
+        - git add -A
+        - git commit -m "initial commit"
+        - git push
+    - - - - - -  - - - - - - -  - - - - - - - 
+    4. Clone the repository 
+        - git clone <posted command github>
+    5. Create a feature branch
+        - git branch server-setup
+    6. Checkout to that branch
+        - git checkout server-setup
+    7. Commit and push branch to github
+        - git add -A
+        - git commit -m "initial commit"
+        - git push
+    8. Git checkout master
+    9. Pull down remote master
+        - git pull
+    10. Checkout back to local branch
+        - git checkout <branch name> server-setup
+    11. Merge local master into local branch
+        - git merge --n-ff master
+        - (if goes well)
+            - shift + ZZ
+        - (if it goes badly)
+            - Resolve conflicts locally
+    12. Push branch to github
+        - git add -A
+        - git commit -m "initial commit"
+        - git push
+    13. Create PR on github
+    14. Git checkout to master & git pull

@@ -14,6 +14,7 @@ bountyRoutes.route('/')
     })
     .post((req, res, next) => {
         const newBounty = new Bounty(req.body);
+        console.log(newBounty)
         newBounty.save((err, saveBounty) => {
             if(err) {
                 res.status(500)
@@ -23,6 +24,21 @@ bountyRoutes.route('/')
         })
     });
 
+bountyRoutes.get('/search', (req, res, next) => {
+    const { bounty } = req.query;
+    const pattern = new RegExp(bounty);
+        Bounty.find(
+            { type: { $regex: pattern, $options: 'i' } }, 
+            (err, bounties) => {
+                if(err) {
+                    res.status(500)
+                    return next(err)
+                };
+                return res.status(200).send(bounties)
+            }
+        )
+    });
+    
 bountyRoutes.route('/:bountyId')
     .get((req, res, next) => {
         Bounty.findOne({ _id: req.params.bountyId }, (err, foundBounty) => {
@@ -56,20 +72,5 @@ bountyRoutes.route('/:bountyId')
             }
         )
     });
-
-bountyRoutes.get('search', (req, res, next) => {
-    const { bounty } = req.query;
-    const pattern = new RegExp(bounty);
-    Bounty.find(
-        { type: { $regex: pattern, $options: 'i' } }, 
-        (err, bounties) => {
-            if(err) {
-                res.status(500)
-                return next(err)
-            };
-            return res.status(200).send(bounties)
-        }
-    )
-});
 
 module.exports = bountyRoutes;

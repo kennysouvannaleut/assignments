@@ -14,12 +14,10 @@ const App = () => {
 
     const addBounty = (newBounty) => {
         axios.post('/bounty', newBounty)
-            // .then(res => console.log(res))
-            // .catch(err => console.log(err))
             .then(res => {
                 setBounties(prevBounties => [...prevBounties, res.data])
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response.data.errMsg))
     };
 
     const deleteBounty = (bountyId) => {
@@ -27,7 +25,7 @@ const App = () => {
             .then(res => {
                 setBounties(prevBounties => prevBounties.filter(bounty => bounty._id !== bountyId))
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response.data.errMsg))
     };
 
     const editBounty = (updates, bountyId) => {
@@ -35,16 +33,16 @@ const App = () => {
             .then(res => {
                 setBounties(prevBounties => prevBounties.map(bounty => bounty._id !== bountyId ? bounty : res.data))
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err.response.data.errMsg))
     };
 
     const handleFilter = (e) => {
         if(e.target.value === 'reset') {
             getBounties()
         } else {
-            axios.get(`/bounty/search/type?type=${ e.target.value }`)
+            axios.get(`/bounty/search?type=${ e.target.value }`)
                 .then(res => setBounties(res.data))
-                .catch(err => console.log(err))
+                .catch(err => console.log(err.response.data.errMsg))
         }
     };
 
@@ -72,7 +70,7 @@ const App = () => {
                 bounties.map(bounty => 
                     <Bounty 
                         {...bounty} 
-                        key={ bounty.firstName }
+                        key={ bounty._id }
                         deleteBounty={ deleteBounty }
                         editBounty={ editBounty }
                     />)
