@@ -1,18 +1,17 @@
 const express = require('express');
 const app = express();
 
+const port = process.env.PORT || 9000;
+
 app.use(express.json());
 
-app.use('/todos', require('./routes/todosRouter'));
+app.use('/todo', require('./routes/todoRoutes'));
 
-app.use(function(req, res, next) {
-    const err = new Error('Item Not Found')
-    err.status = 404
-    next(err)
+app.use((err, req, res, next) => {
+    console.log(err);
+    return res.send( { errMsg: err.message } )
 });
 
-const port = process.env.PORT || 9000
-    app.listen(port, () => {
-    console.log(`Express app is running on port ${port}`)
+app.listen(port, () => {
+    console.log(`Express app running on port ${port}`)
 });
-

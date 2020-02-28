@@ -1,27 +1,27 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const inventorySchema = new Schema({
+const inventorySchema = new Schema(
+    {
     name: {
         type: String,
         required: true,
-        unique: true,
+        unique: true
     },
     category: [String],
     size: {
         type: String,
-        enum: ['Small', 'Medium', 'Large'],
+        enum: ['Small', 'Medium', 'Large']
     },
     season: {
         type: String,
-        enum: ['Fall', 'Summer', 'Winter'],
+        enum: ['Fall', 'Summer', 'Winter']
     },
     price: Number,
     date: { 
         type: Date, 
-        default: Date.now,
-    },
-    hidden: Boolean,
+        default: Date.now
+    }
 });
 
 module.exports = mongoose.model('Inventory', inventorySchema);

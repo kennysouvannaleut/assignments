@@ -14,6 +14,7 @@ inventoryRoutes.route('/')
     })
     .post((req, res, next) => {
         const newInventory = new Inventory(req.body);
+        console.log(newInventory);
         newInventory.save((err, saveInventory) => {
             if(err) {
                 res.status(500)

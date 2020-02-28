@@ -23,8 +23,8 @@ mongoose.connect(
 app.use('/bounty', require('./routes/bountyRoutes'));
 
 app.use((err, req, res, next) => {
-    console.log(err)
-    return res.send({ errMsg: err.message })
+    console.log(err);
+    return res.send( { errMsg: err.message } )
 });
 
 app.listen(port, () => {

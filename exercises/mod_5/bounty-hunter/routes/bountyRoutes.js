@@ -14,7 +14,7 @@ bountyRoutes.route('/')
     })
     .post((req, res, next) => {
         const newBounty = new Bounty(req.body);
-        console.log(newBounty)
+        console.log(newBounty);
         newBounty.save((err, saveBounty) => {
             if(err) {
                 res.status(500)
