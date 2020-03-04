@@ -1,14 +1,9 @@
 import React from 'react';
-// import PostList from './PostList';
-// import Post from './Post';
 
-const Public = () => {
-
-    return (
-        <div className='public'>
-            
-        </div>
-    );
-};
+const Public = () => (
+    <div>
+        
+    </div>
+);
 
 export default Public;

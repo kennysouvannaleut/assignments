@@ -30,7 +30,7 @@ const Auth = () => {
 
     return (
         <div className='auth-container'>
-            <h1>RTV App</h1>
+            <h1>Right To Vote (RTV) App</h1>
             { !toggle ?
             <>
                 <AuthForm
@@ -39,7 +39,7 @@ const Auth = () => {
                     inputs={ inputs }
                     btnText='Sign Up'
                 />
-                <p onClick={ () => setToggle(prev => !prev) }>Already an existing user?</p> 
+                <p onClick={ () => setToggle(prev => !prev) }>Existing Users? Sign In</p> 
             </>
         :
             <>
@@ -49,7 +49,7 @@ const Auth = () => {
                     inputs={ inputs }
                     btnText='Login'
                 />
-                <p onClick={ () => setToggle(prev => !prev) }>New user</p>
+                <p onClick={ () => setToggle(prev => !prev) }>New Users? Sign Up</p>
             </>
             }
         </div>

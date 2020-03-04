@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../context/UserProvider';
-import PostForm from './PostForm';
+import FormContainer from './FormContainer';
 import PostList from './PostList';
-import Post from './Post';
 
 const Profile = () => {
     const { 
@@ -10,19 +9,19 @@ const Profile = () => {
             username 
         },
         addPost, 
-        editPost,
-        removePost,
+        // editPost,
+        // removePost,
         posts 
     } = useContext(UserContext);
 
     return (
         <div className='profile'>
-            <h1>Welcome {username}!</h1>
+            <h1>Welcome { username }!</h1>
             <h3>Create Post</h3>
-            <PostForm
+            <FormContainer
                 addPost={ addPost } 
-                editPost={ editPost }
-                removePost={ removePost }
+                // editPost={ editPost }
+                // removePost={ removePost }
             />
             <h3>Your Posts</h3>
             <PostList 
