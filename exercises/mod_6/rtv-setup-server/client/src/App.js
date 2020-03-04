@@ -5,27 +5,31 @@ import Navbar from './components/Navbar';
 import Auth from './components/Auth';
 import Profile from './components/Profile';
 import Public from './components/Public';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
     const { token, logout } = useContext(UserContext);
 
     return (
         <div className='app'>
-            <Navbar logout={ logout } />
+            <Navbar logout={ logout } token={ token } />
 
             <Switch>
                 <Route 
                     exact path='/'
-                    render={ () => token ? <Redirect to='/profile' /> 
-                    : <Auth /> }
+                    render={ () => token ? <Redirect to='/profile' /> : <Auth /> }
                 />
-                <Route 
+                <ProtectedRoute 
                     path='/profile'
-                    render={ () => <Profile /> }
+                    component={ Profile }
+                    redirectTo={ '/' }
+                    token={ token }
                 />
-                <Route
+                <ProtectedRoute
                     path='/public'
-                    render={ () => <Public /> }
+                    component={ Public }
+                    redirectTo={ '/' }
+                    token={ token }
                 />
             </Switch>
 

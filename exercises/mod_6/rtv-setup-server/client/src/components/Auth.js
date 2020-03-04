@@ -8,7 +8,7 @@ const Auth = () => {
     const [inputs, setInputs] = useState(initialInputs);
     const [toggle, setToggle] = useState(false);
 
-    const { signup, login } = useContext(UserContext);
+    const { signup, login, errMsg, resetAuthErr } = useContext(UserContext);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -28,6 +28,11 @@ const Auth = () => {
         login(inputs);
     };
 
+    const toggleForm = () => {
+        setToggle(prev => !prev)
+        resetAuthErr();
+    };
+
     return (
         <div className='auth-container'>
             <h1>Right To Vote (RTV) App</h1>
@@ -38,8 +43,9 @@ const Auth = () => {
                     handleSubmit={ handleSignup }
                     inputs={ inputs }
                     btnText='Sign Up'
+                    errMsg={ errMsg }
                 />
-                <p onClick={ () => setToggle(prev => !prev) }>Existing Users? Sign In</p> 
+                <p onClick={ toggleForm }>Existing Users? Sign In</p> 
             </>
         :
             <>
@@ -48,8 +54,9 @@ const Auth = () => {
                     handleSubmit={ handleLogin }
                     inputs={ inputs }
                     btnText='Login'
+                    errMsg={ errMsg }
                 />
-                <p onClick={ () => setToggle(prev => !prev) }>New Users? Sign Up</p>
+                <p onClick={ toggleForm }>New Users? Sign Up</p>
             </>
             }
         </div>

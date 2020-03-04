@@ -22,11 +22,11 @@ authRouter.route('/signup')
                     res.status(500);
                     return next(err);
                 }
-                const token = jwt.sign(savedUser.toObject(), process.env.SECRET);
+                const token = jwt.sign(savedUser.withoutPassword(), process.env.SECRET);
                 return res.status(201).send( {
-                    sucess: true,
-                    user: savedUser.toObject(),
-                    token
+                    token,
+                    user: savedUser.withoutPassword(),
+                    sucess: true
                 })
             })
         }
@@ -38,18 +38,28 @@ authRouter.post('/login', (req, res, next) => {
     { username: req.body.username.toLowerCase() }, 
     (err, user) => {
         if(err) {
-            res.status(500);
+            res.status(500);    
             return next(err);
         }
-        if(!user || user.password !== req.body.password) {
+        if(!user) {
             res.status(403);
-            return next(new Error('Email or password are incorrect'));
+            return next(new Error('Username or Password are incorrect'));
         }
-        const token = jwt.sign(user.toObject(), process.env.SECRET);
-        return res.status(200).send( {
-            token,
-            user: user.toObject(),
-            success: true
+        user.checkPassword(req.body.password, (err, isMatch) => {
+            if(err) {
+                res.status(403);
+                return next(new Error('Username or Password are inccorect'))
+            }
+            if(!isMatch) {
+                res.status(403);
+                return next(new Error('Username or Password are incorrect'))
+            }
+            const token = jwt.sign(user.withoutPassword(), process.env.SECRET);
+            return res.status(200).send( {
+                token,
+                user: user.withoutPassword(),
+                success: true
+            })
         })
     })
 });
