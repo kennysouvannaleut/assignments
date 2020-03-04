@@ -16,7 +16,8 @@ const App = () => {
             <Switch>
                 <Route 
                     exact path='/'
-                    render={ () => token ? <Redirect to='/profile' /> : <Auth /> }
+                    render={ () => token ? <Redirect to='/profile' /> 
+                    : <Auth /> }
                 />
                 <Route 
                     path='/profile'

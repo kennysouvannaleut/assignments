@@ -3,7 +3,7 @@ const app = express();
 require('dotenv').config();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const expressJwt = require('express-jwt');
+const expressJWT = require('express-jwt');
 
 const PORT = process.env.PORT || 9000;
 const dbURL = 'mongodb://localhost:27017/user-auth';
@@ -25,7 +25,7 @@ mongoose.connect(
     }
 );
 
-app.use('/api', expressJwt( { secret: process.env.SECRET } ));
+app.use('/api', expressJWT( { secret: process.env.SECRET } ));
 app.use('/auth', require('./routes/authRouter'));
 app.use('/api/post', require('./routes/postRouter'));
 

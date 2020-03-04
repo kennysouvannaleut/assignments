@@ -2,9 +2,9 @@ import React, { useState, useContext } from 'react';
 import AuthForm from './AuthForm';
 import { UserContext } from '../context/UserProvider';
 
-const initialInputs = { username: '', password: '' };
-
 const Auth = () => {
+    const initialInputs = { username: '', password: '' };
+
     const [inputs, setInputs] = useState(initialInputs);
     const [toggle, setToggle] = useState(false);
 
@@ -35,7 +35,7 @@ const Auth = () => {
             <>
                 <AuthForm
                     handleChange={ handleChange }
-                    handleSubmit= { handleSubmit }
+                    handleSubmit={ handleSignup }
                     inputs={ inputs }
                     btnText='Sign Up'
                 />
@@ -43,10 +43,17 @@ const Auth = () => {
             </>
         :
             <>
+                <AuthForm
+                    handleChange={ handleChange }
+                    handleSubmit={ handleLogin }
+                    inputs={ inputs }
+                    btnText='Login'
+                />
+                <p onClick={ () => setToggle(prev => !prev) }>New user</p>
             </>
             }
         </div>
-    )
+    );
 };
 
 export default Auth;

@@ -10,7 +10,7 @@ const Navbar = props => {
             <Link to='/public'>Public</Link>
             <button onClick={ logout }>Logout</button>
         </div>
-    )
+    );
 };
 
 export default Navbar;
