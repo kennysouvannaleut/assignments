@@ -13,17 +13,28 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    isAdmin: {
-        type: Boolean,
-        default: false
+    postsCreated: {
+        type: Array,
+        default: []
+    },
+    postsVoted: {
+        type: Array,
+        default: []
+    },
+    postsCommented: {
+        type: Array,
+        default: []
     }
 });
 
 userSchema.pre('save', function(next) {
     const user = this;
-    if(!user.isModified('password')) return next();
-    bcrypt.hash(user.password, 10, (err, hash) => {
-        if(err) return next(err);
+        if(!user.isModified('password')) 
+            return next();
+        bcrypt.hash(user.password, 10, (err, hash) => {
+        if(err) 
+            return next(err);
+
         user.password = hash;
         next();
     });
@@ -31,7 +42,9 @@ userSchema.pre('save', function(next) {
 
 userSchema.methods.checkPassword = function(passwordAttempt, callback) {
     bcrypt.compare(passwordAttempt, this.password, (err, isMatch) => {
-        if(err) return callback(err);
+        if(err) {
+            return callback(err);
+        }
         return callback(null, isMatch);
     });
 };
@@ -42,4 +55,6 @@ userSchema.methods.withoutPassword = function() {
     return user;
 };
 
-module.exports = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;

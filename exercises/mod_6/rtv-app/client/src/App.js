@@ -3,8 +3,8 @@ import { UserContext } from './context/UserProvider';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Auth from './components/Auth';
-import Profile from './components/Profile';
-import Public from './components/Public';
+import Profile from './pages/Profile';
+import Public from './pages/Public';
 import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {

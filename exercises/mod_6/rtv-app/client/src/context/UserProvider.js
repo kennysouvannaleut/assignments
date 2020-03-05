@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
 export const UserContext = createContext();
@@ -21,6 +21,16 @@ const UserProvider = (props) => {
         errMsg: ''
     };
     const [userState, setUserState] = useState(initialState);
+
+    const getAllPosts = () => {
+        axios.get('/public')
+            .then(res => {
+                setUserState({
+                    posts: res.data
+                })
+            })
+            .catch(handleErr)
+    }
 
     const signup = (credentials) => {
         axios.post('/auth/signup', credentials)
@@ -78,7 +88,7 @@ const UserProvider = (props) => {
             errMsg: ''
         }))
     };
-    
+
     const getUserPosts = () => {
         userAxios.get('/api/post/user')
             .then(res => {
@@ -119,6 +129,10 @@ const UserProvider = (props) => {
             })
             .catch(handleErr)
     };
+
+    useEffect(() => {
+        getAllPosts()
+    }, []);
 
     return (
         <UserContext.Provider

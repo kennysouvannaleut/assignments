@@ -1,15 +1,15 @@
 import React from 'react';
 
-const Post = props => {
-    const { date, title, description } = props;
+const PostDetails = props => {
+    const { postDate, title, description } = props;
 
     return (
         <div className='post'>     
             <h3>{ title }</h3>
             <p>{ description }</p>
-            <p>{ date }</p>  
+            <p>{ postDate }</p>  
         </div>
     );
 };
 
-export default Post;
+export default PostDetails;

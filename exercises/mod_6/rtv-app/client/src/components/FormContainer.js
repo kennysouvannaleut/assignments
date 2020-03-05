@@ -4,7 +4,7 @@ import FormComponent from './FormComponent';
 const FormContainer = (props) => {
     // console.log(props)
     const initialInputs = {
-        date: '',
+        postDate: '',
         title: '',
         description: ''
     };

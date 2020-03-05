@@ -14,30 +14,16 @@ const postSchema = new Schema({
     description: {
         type: String
     },
-    votes: [{
-        user: { type: Schema.Types.ObjectId }
-    }],
     voteCount: {
         type: Number
     },
-    views: [{
-        user: { type: Schema.Types.ObjectId }
-    }],
-    comments: [{
-        user: { type: Schema.Types.ObjectId },
-        comment: {
-            type: String
-        },
-        date: {
-            type: Date,
-            default: Date.now
-        }
-    }],
-    date: {
+    postTime: {
         type: Date,
         default: Date.now
     }
 });
 
-module.exports = mongoose.model('Post', postSchema);
+const Post = mongoose.model('Post', postSchema);
+
+module.exports = Post;
 

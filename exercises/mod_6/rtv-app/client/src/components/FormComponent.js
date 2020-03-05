@@ -6,7 +6,7 @@ const FormComponent = props => {
         handleSubmit,
         btnText,
         inputs: {
-            date,
+            postDate,
             title,
             description
         }
@@ -16,8 +16,8 @@ const FormComponent = props => {
         <form onSubmit={ handleSubmit }>
             <input 
                 type='date'
-                name='date'
-                value={ date }
+                name='postDate'
+                value={ postDate }
                 onChange={ handleChange }
             />
             

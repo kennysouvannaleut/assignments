@@ -1,10 +1,6 @@
 import React from 'react';
-import Post from './Post';
-
-const emptyListStyle = {
-    margin: 20,
-    textAlign: 'center'
-};
+import PostDetails from './PostDetails';
+// import Public from '../pages/Public';
 
 const PostList = props => {
     const { posts } = props;
@@ -14,7 +10,7 @@ const PostList = props => {
             <ul>
                 { posts.map(post => {
                 return (
-                    <Post 
+                    <PostDetails 
                         {...post}
                         key={ post._id }
                     />
@@ -23,7 +19,7 @@ const PostList = props => {
             </ul>
         </div>
     ):( 
-        <div style={ emptyListStyle }> No recent posts! :(
+        <div style={ { color: 'blue' } }> No recent posts! :(
         </div>
     )
 }; 
