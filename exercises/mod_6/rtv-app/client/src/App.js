@@ -1,18 +1,26 @@
 import React, { useContext } from 'react';
-import { UserContext } from './context/UserProvider';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Auth from './components/Auth';
-import Profile from './pages/Profile';
-import Public from './pages/Public';
-import ProtectedRoute from './components/ProtectedRoute';
+import { Switch, Route, Redirect} from 'react-router-dom';
+
+import UserContext from './context/userContext.js';
+
+import Navbar from './components/nav/Navbar.js';
+import Auth from './components/auth/Auth.js';
+import Error from './components/Error.js';
+import ProtectedRoute from './components/ProtectedRoute.js';
+
+import Home from './pages/home/Home.js';
+import Profile from './pages/profile/Profile.js';
+import CurrentPost from './pages/currentPost/CurrentPost.js';
+import PostDetail from './pages/postDetail/PostDetail.js';
+import UserDetail from './pages/userDetail/UserDetail.js';
 
 const App = () => {
-    const { token, logout } = useContext(UserContext);
+    const userContext = useContext(UserContext);
+    const { token, signout } = userContext;
 
     return (
-        <div className='app'>
-            <Navbar logout={ logout } token={ token } />
+        <div className='App'>
+            { token && <Navbar signout={ signout } /> }
 
             <Switch>
                 <Route 
@@ -26,15 +34,39 @@ const App = () => {
                     token={ token }
                 />
                 <ProtectedRoute
-                    path='/public'
-                    component={ Public }
+                    path='/current-user'
+                    component={ CurrentPost }
+                    redirectTo={ '/' }
+                    token={ token }
+                />
+                <ProtectedRoute
+                    path='/home'
+                    component={ Home }
+                    redirectTo={ '/' }
+                    token={ token }
+                />
+                <ProtectedRoute
+                    path='/:issueId/details'
+                    component={ PostDetail }
+                    redirectTo={ '/' }
+                    token={ token }
+                />
+                <ProtectedRoute
+                    path='/user/:username'
+                    component={ UserDetail }
+                    redirectTo={ '/' }
+                    token={ token }
+                />
+                <ProtectedRoute
+                    exact path='*'
+                    component={ Error }
                     redirectTo={ '/' }
                     token={ token }
                 />
             </Switch>
 
         </div>
-    )
+    );
 };
 
 export default App;

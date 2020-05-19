@@ -1,52 +1,51 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const Schema = mongoose.Schema;
+
+const saltRounds = 10;
+
+const { Schema } = mongoose;
 
 const userSchema = new Schema({
-    username: {
-        type: String,
-        required: true,
-        unique: true, 
-        lowercase: true
+    username : {
+        type : String,
+        required : true,
+        unique : true, 
+        lowercase : true
     },
-    password: {
-        type: String,
-        required: true
+    password : { 
+        type : String, 
+        required : true 
     },
-    postsCreated: {
-        type: Array,
-        default: []
-    },
-    postsVoted: {
-        type: Array,
-        default: []
-    },
-    postsCommented: {
-        type: Array,
-        default: []
+    memberSince : { 
+        type : Date, 
+        default : Date.now()
     }
 });
 
 userSchema.pre('save', function(next) {
     const user = this;
-        if(!user.isModified('password')) 
-            return next();
-        bcrypt.hash(user.password, 10, (err, hash) => {
-        if(err) 
-            return next(err);
 
-        user.password = hash;
+    if (!user.isModified('password') || !user.isNew) {
         next();
-    });
+    } else {
+        bcrypt.hash(user.password, saltRounds, (err, hash) => {
+            if (err) {
+                console.log('Error hashing password for user', user.username);
+                return next(err);
+            } else {
+                user.password = hash;
+                next();
+            } 
+        });
+    }
 });
 
-userSchema.methods.checkPassword = function(passwordAttempt, callback) {
-    bcrypt.compare(passwordAttempt, this.password, (err, isMatch) => {
-        if(err) {
+userSchema.methods.checkPassword = function(password, callback) {
+    bcrypt.compare(password, this.password, (err, isMatch) => {
+        if (err) 
             return callback(err);
-        }
-        return callback(null, isMatch);
-    });
+            return callback(null, isMatch);
+     });
 };
 
 userSchema.methods.withoutPassword = function() {
@@ -55,6 +54,4 @@ userSchema.methods.withoutPassword = function() {
     return user;
 };
 
-const User = mongoose.model('User', userSchema);
-
-module.exports = User;
+module.exports = mongoose.model('User', userSchema);

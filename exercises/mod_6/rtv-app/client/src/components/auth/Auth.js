@@ -1,66 +1,65 @@
 import React, { useState, useContext } from 'react';
-import AuthForm from './AuthForm';
-import { UserContext } from '../context/UserProvider';
+import UserContext from '../../context/userContext.js';
+import AuthForm from './AuthForm.js';
 
-const Auth = () => {
-    const initialInputs = { username: '', password: '' };
+export default () => {
+    const initialInputs = { username : '', password : '' };
 
     const [inputs, setInputs] = useState(initialInputs);
     const [toggle, setToggle] = useState(false);
 
-    const { signup, login, errMsg, resetAuthErr } = useContext(UserContext);
+    const userContext = useContext(UserContext);
+    const { signup, signin, errMsg, resetAuthErr } = userContext;
 
-    const handleChange = (e) => {
+    const handleChange = e => { 
         const { name, value } = e.target;
         setInputs(prevInputs => ({
             ...prevInputs,
-            [name]: value
-        }))
-    };
+            [name] : value
+        })
+    )};
 
-    const handleSignup = (e) => {
+    const handleSignup = e => {
         e.preventDefault();
         signup(inputs);
     };
 
-    const handleLogin = (e) => {
+    const handleSignin = e => {
         e.preventDefault();
-        login(inputs);
+        signin(inputs);
     };
 
     const toggleForm = () => {
-        setToggle(prev => !prev)
+        setToggle(prevToggle => !prevToggle)
         resetAuthErr();
     };
 
     return (
         <div className='auth-container'>
-            <h1>Right To Vote (RTV) App</h1>
+            <h1>Right To Vote App</h1>
             { !toggle ?
             <>
                 <AuthForm
                     handleChange={ handleChange }
                     handleSubmit={ handleSignup }
                     inputs={ inputs }
-                    btnText='Sign Up'
+                    btnText='Signup'
                     errMsg={ errMsg }
                 />
-                <p onClick={ toggleForm }>Existing Users? Sign In</p> 
+                <p onClick={ toggleForm }>Existing user? Sign In</p> 
             </>
         :
             <>
                 <AuthForm
                     handleChange={ handleChange }
-                    handleSubmit={ handleLogin }
+                    handleSubmit={ handleSignin }
                     inputs={ inputs }
-                    btnText='Login'
+                    btnText='Signin'
                     errMsg={ errMsg }
                 />
-                <p onClick={ toggleForm }>New Users? Sign Up</p>
+                <p onClick={ toggleForm }>New user? Create an account</p>
             </>
             }
         </div>
     );
 };
-
-export default Auth;

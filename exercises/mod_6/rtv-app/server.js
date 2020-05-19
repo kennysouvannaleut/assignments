@@ -1,43 +1,47 @@
-const express = require('express');
-const app = express();
 require('dotenv').config();
-const morgan = require('morgan');
-const mongoose = require('mongoose');
-const expressJWT = require('express-jwt');
 
-const dbURL = 'mongodb://localhost:27017/user-auth';
+const express = require('express');
+const expJWT = require('express-jwt');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
+
+const app = express(); 
+
+const db = require('./config/db.js')
+db.connection.on('error', console.error.bind(console, 'connection error'));
+db.connection.on('connected', (() => { console.log('connection open to db') }))
+
+const users = require('./routes/user.js')
+const issues = require('./routes/issue.js');
+const comments = require('./routes/comment.js');
 
 app.use(express.json());
-app.use(morgan('dev'));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded( { extended : true } ));
 
-mongoose.connect(
-    dbURL, 
-    {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-    }, 
-    (err) => {
-        if(err) throw err;
-        console.log('MongoDB connection established');
-    }
-);
+const requireAuth = expJWT( { secret : process.env.SECRET } );
 
-app.use('/api', expressJWT( { secret: process.env.SECRET } ));
-app.use('/auth', require('./routes/authRouter'));
-app.use('/api/post', require('./routes/postRouter'));
-app.use('/public', require('./routes/publicRouter'));
+app.get('/api', requireAuth, (req, res, next) => { res.send('authenticated') });
+
+// router.use((req, res, next) => {
+//     console.log('/' + req.method);
+//     next()
+// });
+
+app.use('/auth', users);
+app.use('/api/issues', issues);
+app.use('/api/comments', comments);
 
 app.use((err, req, res, next) => {
-    console.log(err);
-    if(err.name === 'UnauthorizedError') {
-        res.status(err.status)
+    console.error(err);
+    if (err.name === 'UnauthorizedError') {
+        res.status(err.status);
     }
-    return res.send( { errMsg: err.message } );
+    return res.send( { errMsg : err.message } );
 });
 
-const PORT = process.env.PORT || 9000;
-    app.listen(PORT, () => {
-    console.log(`Server is running on local port ${PORT}`);
+const port = process.env.PORT || 8000
+app.listen(port, () => {
+    console.log(`Server listening for requests on localhost:${port}`);
 });

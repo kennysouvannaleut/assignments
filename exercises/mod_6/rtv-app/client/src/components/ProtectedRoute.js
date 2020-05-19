@@ -5,7 +5,7 @@ const ProtectedRoute = props => {
     const { 
         path, 
         redirectTo, 
-        component: C, 
+        component : C, 
         token, 
         ...rest 
     } = props;
