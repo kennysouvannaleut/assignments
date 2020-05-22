@@ -12,7 +12,7 @@ const Projects = ({ match }) => {
                 <li><Link to={ match.url + '/axios-api-project'}> Axios API </Link></li>
 
                 <br/><a href='https://www.github.com/kennysouvannaleut/assignments'> Github </a>
-                <br/><a href='https://www.github.com/kennysouvannaleut/fullstack-ig'> Check out our group IG Full-Stack App </a>
+                <br/><a href='https://photograph-share.herokuapp.com/'> Check out our Full-Stack App on Heroku </a>
             </ul>
 
             <Switch> 
