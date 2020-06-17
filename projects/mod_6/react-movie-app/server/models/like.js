@@ -6,9 +6,9 @@ const likeSchema = new Schema({
         type: Schema.Types.ObjectId, 
         ref: 'User' 
     },
-    discussionId: { 
+    commentId: { 
         type: Schema.Types.ObjectId, 
-        ref: 'Discussion' 
+        ref: 'Comment' 
     },
     videoId: { type: String }
 }, { timestamps: true });

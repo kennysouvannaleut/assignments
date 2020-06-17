@@ -1,13 +1,13 @@
 const { Favorite } = require('../models/favorite');
 
-exports.ratedMovies = function(req, res) {
+exports.showFavorites = function(req, res) {
     Favorite.find({ 'movieId': req.body.movieId })
-        .exec((err, favorite) => {
+        .exec((err, favorites) => {
             if (err) return res.status(400).send(err);
 
             return res.status(200).send({
                 success: true,
-                results: favorite.length
+                results: favorites.length
             })
         })
     };
@@ -26,13 +26,12 @@ exports.movies = function(req, res) {
                 }
             return res.status(200).send({
                 success: true,
-                result, 
-                favorite
+                results: result
             });
         })
-    }
+    };
 
-exports.favorite = function(req, res) {
+exports.favorited = function(req, res) {
     const favorite = new Favorite(req.body);
 
     favorite.save((err, doc) => {
@@ -47,24 +46,24 @@ exports.favorite = function(req, res) {
     })
 };
 
-exports.deleteRating = function(req, res) {
+exports.delete = function(req, res) {
     Favorite.findOneAndDelete({
         'movieId': req.body.movieId,
         'userInfo': req.body.userInfo
     })
-        .exec((err, deleted) => {
+        .exec((err, doc) => {
             if (err) return res.status(400).send({
                 success: false,
                 error: err
             });
             return res.status(200).send({
                 success: true,
-                deleted
+                doc
             });
         })
     };
 
-exports.lists = function(req, res) {
+exports.list = function(req, res) {
     Favorite.find({ 'userInfo': req.body.userInfo })
         .exec((err, results) => {
             if (err) return res.status(400).send(err);

@@ -1,64 +1,71 @@
 const { User } = require('../models/user');
+const jwt = require('jsonwebtoken');
+const { SECRET } = process.env;
 
-exports.auth = function(req, res) {
-    res.status(200).send({
-        isAuth: true,
-        _id: req.user._id,
-        name: req.user.name,
-        email: req.user.email,
-        image: req.user.image
-    });
+exports.auth = function(req, res, next) {
+    User.find({}).exec((err, users) => {
+        if (err) { 
+            res.status(500)
+            return next(err);
+        };
+        return res.status(200).send(users);
+    })
 };
 
-exports.register = function(req, res) {
-    const user = new User(req.body);
+exports.register = function(req, res, next) {
+    User.findOne({ email: req.body.email }, (err, user) => {
+        if (err) {
+            res.staus(500);
+            return next(err);
+        }
+        if (user) {
+            res.status(403);
+            return next(new Error('Invalid input. Please try again.'));
+        }
 
-    user.save((err, doc) => {
-        if (err) return res.send({ 
-            success: false, 
-            error: err 
-        });
-        return res.status(200).send({ success: true, user: doc })
+        const newUser = new User(req.body);
+        newUser.save((err, savedUser) => {
+            if (err) { 
+                res.status(500)
+                return next(err)
+            }
+            const token = jwt.sign(savedUser.withoutPassword(), SECRET);
+            return res.status(201).send({ 
+                success: true, 
+                user: savedUser.withoutPassword(),
+                token
+            }) 
+        })
     });
 };
 
 exports.login = function(req, res, next) {
     User.findOne({ email: req.body.email }, (err, user) => {
-        if (err) return next(err);
+        if (err) {
+            res.status(500); 
+            return next(err);
+        }
+        if (!user) { 
+            res.status(403);
+            return next(new Error('Invalid input, Please try again.'))
+        };
 
-        if (!user) return res.send({
-            success: false,
-            message: 'Invaliid email, please try again.'
+        user.comparePassword(req.body.password, (err, isMatch) => {
+            if (err) {
+                res.status(403);
+                return next(new Error('Invalid input. Please try again.'));
+            }
+            if (!isMatch) {
+                res.status(403);
+                return next(new Error('Invalid input. Please try again.'));
+            };
+
+            const token = jwt.sign(user.withoutPassword(), SECRET);
+            return res.status(200).send({
+                success: true,
+                user: user.withoutPassword(),
+                token
+            })
         });
-
-            user.comparePassword(req.body.password, (err, isMatch) => {
-                if (err) return next(err);
-
-                if (!isMatch) return res.send({
-                    success: false,
-                    message: 'Invalid password, please try again.'
-                });
-
-                user.generateJwt((err, user) => {
-                    if (err) return res.status(400).send(err);
-
-                    return res.status(200).send({
-                        success: true,
-                        userId: user._id,
-                        payload: user
-                });
-            });
-        });
-    });
-};
-
-exports.logout = function(req, res) {
-    User.findOneAndUpdate({ _id: req.userId }, 
-    { token: '', tokenExp: '' }, (err, doc) => {
-        if (err) return res.send({
-            success: false,
-            error: err
-        });
-        return res.status(200).send({ success: true, doc })
     });
 };

@@ -1,47 +1,52 @@
 const { Like } = require('../models/like');
 const { Dislike } = require('../models/dislike');
 
-exports.likes = function(req, res) {
-    let options = {}
+exports.getLikes = function(req, res) {
+
+    let options = {};
 
         if (req.body.videoId) {
             options = { videoId: req.body.videoId }
         } else {
-            options = { discussionId: req.body.discussionId }
+            options = { commentId: req.body.commentId }
         }
 
     Like.find(options)
-        .exec((err, ratings) => {
+        .exec((err, results) => {
             if (err) return res.status(400).send(err);
 
             return res.status(200).send({
                 success: true,
-                results: ratings
+                results
             });
         });
     };
 
-exports.dislikes = function(req, res) {
-    let options = {}
+
+exports.getDislikes = function(req, res) {
+
+    let options = {};
 
         if (req.body.videoId) {
             options = { videoId: req.body.videoId }
         } else {
-            options = { discussionId: req.body.discussionId }
+            options = { commentId: req.body.commentId }
         }
 
     Dislike.find(options)
-        .exec((err, ratings) => {
+        .exec((err, results) => {
             if (err) return res.status(400).send(err);
 
             return res.status(200).send({
                 success: true,
-                results: ratings
+                results
             });
         })
     };
 
-exports.upvote = function(req, res) {
+
+exports.like = function(req, res) {
+    
     let options = {};
 
         if (req.body.videoId) {
@@ -51,20 +56,20 @@ exports.upvote = function(req, res) {
             }
         } else {
             options = {
-                discussionId: req.body.discussionId,
+                commentId: req.body.commentId,
                 userId: req.body.userId
             }
         }
 
     const like = new Like(options);
-        like.save((err, ratings) => {
+        like.save((err, doc) => {
             if (err) return res.status(400).send({
                 success: false,
                 error: err
             });
 
         Dislike.findOneAndDelete(options)
-            .exec((err, ratings) => {
+            .exec((err, results) => {
                 if (err) return res.status(400).send({
                     success: false,
                     error: err
@@ -74,7 +79,9 @@ exports.upvote = function(req, res) {
         })
     };
 
-exports.downvote = function(req, res) {
+
+exports.dislike = function(req, res) {
+
     let options = {};
 
         if (req.body.videoId) {
@@ -84,81 +91,25 @@ exports.downvote = function(req, res) {
             }
         } else {
             options = {
-                discussionId: req.body.discussionId,
+                commentId: req.body.commentId,
                 userId: req.body.userId
             }
         }
 
     const dislike = new Dislike(options);
-        dislike.save((err, ratings) => {
+        dislike.save((err, doc) => {
             if (err) return res.status(400).send({
                 success: false,
                 error: err
             });
 
         Like.findOneAndDelete(options)
-            .exec((err, ratings) => {
+            .exec((err, results) => {
                 if (err) return res.status(400).send({
                     success: false,
                     error: err
                 })
                 return res.status(200).send({ success: true })
             });
-        })
-    };
-
-exports.unLike = function(req, res) {
-    let options = {};
-
-        if (req.body.videoId) {
-            options = {
-                videoId: req.body.videoId,
-                userId: req.body.userId
-            }
-        } else {
-            options = {
-                discussionId: req.body.discussionId,
-                userId: req.body.userId
-            }
-        }
-
-    Dislike.findOneAndDelete(options)
-        .exec((err, ratings) => {
-            if (err) return res.status(400).send({
-                success: false,
-                error: err
-            });
-            return res.status(200).send({ 
-                success: true,
-                results: ratings
-            })
-        })
-    };
-
-exports.unDislike = function(req, res) {
-    let options = {};
-
-        if (req.body.videoId) {
-            options = {
-                videoId: req.body.videoId,
-                userId: req.body.userId
-            }
-        } else {
-            options = {
-                discussionId: req.body.discussionId,
-                userId: req.body.userId
-            }
-        }
-
-    Like.findOneAndDelete(options)
-        .exec((err, ratings) => {
-            if (err) return res.status(400).send({
-                success: false,
-                error: err
-            });
-            return res.status(200).send({ 
-                success: true,
-                results: ratings
-            })
         })
     };

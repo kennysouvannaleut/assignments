@@ -19,12 +19,12 @@ app.use(logger('dev'));
 const requireAuth = expJwt({ secret: SECRET });
 
 app.get('/api', requireAuth, (req, res, next) => {
-    res.send('Successful');
+    res.send('Protected Route');
     next();
 });
 
-app.use('/users', require('./routes/user'));
-app.use('/api/discussions', require('./routes/discussion'));
+app.use('/api/users', require('./routes/user'));
+app.use('/api/comments', require('./routes/comment'));
 app.use('/api/favorites', require('./routes/favorite'));
 app.use('/api/ratings', require('./routes/rating'));
 

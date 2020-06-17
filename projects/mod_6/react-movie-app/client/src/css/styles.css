@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.App {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto';
+}
+
+.nav {
+    padding: 0 20px;
+    border-bottom: solid 1px whitesmoke;
+    overflow: auto;
+    box-shadow: 0 0 30px whitesmoke;
+}

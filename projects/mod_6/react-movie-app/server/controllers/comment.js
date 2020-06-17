@@ -1,16 +1,17 @@
-const { Discussion } = require('../models/discussion');
+const { Comment } = require('../models/comment');
 
-exports.new = function(req, res) {
-    const discussion = new Discussion(req.body);
+exports.comment = function(req, res) {
+    const comment = new Comment(req.body);
 
-    discussion.save((err, discussion) => {
+    comment.save((err, doc) => {
+        console.error('ERROR:', err);
         if (err) return res.send({
             success: false,
             error: err
         });
         
-        Discussion.find({ '_id': discussion._id })
-            .populate('by')
+        Comment.find({ '_id': comment._id })
+            .populate('createdBy')
             .exec((err, results) => {
                 if (err) return res.send({
                     success: false,
@@ -18,21 +19,22 @@ exports.new = function(req, res) {
                 });
                 return res.status(200).send({
                     success: true,
-                    doc: results
+                    results
                 })
             })
         })
-    }
+    };
 
-exports.all = function(req, res) {
-    Discussion.find({ 'postId': req.body.movieId })
-        .populate('by')
-        .exec((err, discussions) => {
+exports.getComments = function(req, res) {
+    Comment.find({ 'postId': req.body.movieId })
+        .populate('createdBy')
+        .exec((err, results) => {
             if (err) return res.status(400).send(err);
 
             return res.status(200).send({
                 success: true,
-                results: discussions
+                results
             })
         })
-    }
+    };
+    

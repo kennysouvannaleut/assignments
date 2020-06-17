@@ -1,22 +1,29 @@
-const { User } = require('../models/user');
+const jwt = require('jsonwebtoken');
+const { SECRET } = process.env;
 
 const auth = (req, res, next) => {
-    let token = req.headers.authorization.split(' ')[1];
-    // console.log('TOKEN: '+token);
+    let result;
+    const authHeader = req.headers.authorization;
 
-    User.findByToken(token, (err, user) => {
-        if (err) return next(err);
+    if (authHeader) {
+        const token = req.headers.authorization.split(' ')[1];
+        const options = { expiresIn: '2d' };
 
-        if (!user) return res.status(401).send({
-            isAuth: false,
-            error: true
-        });
-
-        req.token = token;
-        req.user = user;
-
-        next();
-    });
+        try {
+            result = jwt.verify(token, SECRET, options);
+            req.user = result;
+            next()
+        }
+        catch (err) {
+            throw new Error(err);
+        }
+    } else {
+        result = {
+            error: 'Failed authentication. No token found.',
+            status: 401
+        };
+        res.status(401).send(result);
+    }
 };
 
 module.exports = { auth };
