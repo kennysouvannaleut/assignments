@@ -1,19 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { 
-    TMDB_API_KEY, 
-    TMDB_BASE_URL, 
-    TMDB_IMAGE_URL, 
-    IMAGE_SIZE 
-} from '../../utils/config';    
+import { TMDB_BASE_URL, TMDB_IMAGE_URL, IMAGE_SIZE } from '../../../utils/config';    
 import { useParams } from 'react-router-dom';
-import axios from '../../utils';
-import UserContext from '../../context/userContext';
-import CommentRatings from '../comments/CommentRatings';
-import GridCard from './GridCard';
-import ImageCard from './ImageCard';
-import MovieCard from './MovieCard';
-import Favorite from '../favorite/Favorite';
-import CommentList from '../comments/CommentList';
+import axios from '../../../utils';
+import UserContext from '../../../context/userContext';
+import CommentRatings from '../../comments/CommentRatings';
+import GridCard from '../../movie/GridCard';
+import ImageCard from '../../movie/ImageCard';
+import MovieCard from '../../movie/MovieCard';
+import Favorite from '../../favorite/Favorite';
+import CommentList from '../../comments/CommentList';
 import { Row, Button } from 'antd';
 
 export default function Movie() {
@@ -35,7 +30,7 @@ export default function Movie() {
         axios.post('/api/comments/get_comments', movieId)
             .then(res => {
                 if (res.data.success) {
-                    setCommentList(commentList);
+                    setCommentList(res.data.results);
                 } else {
                     console.log('Error while retrieving comments');
                 }

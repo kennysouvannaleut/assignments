@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { TMDB_SEARCH_URL, TMDB_API_KEY } from '../../utils/config';
-import CardList from './CardList';
+import { TMDB_SEARCH_URL } from '../../utils/config';
+import Card from './Card';
 import SearchInput from './SearchInput';
 import { Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
@@ -52,7 +52,7 @@ export default function SearchMovie() {
 
             <div className='card-list'>
                 { movies.filter(movie => movie.poster_path).map(movie => (
-                    <CardList
+                    <Card
                         key={ movie.id } 
                         movie={ movie }
                     />

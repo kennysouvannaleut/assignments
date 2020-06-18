@@ -2,7 +2,6 @@ import React, { useState, useContext, Fragment } from 'react';
 import axios from '../../utils'
 import UserContext from '../../context/userContext';
 import Comments from './Comments';
-import CommentRatings from './CommentRatings';
 import { Button, Input, Typography } from 'antd';
 
 const { TextArea } = Input;
@@ -22,15 +21,14 @@ export default function CommentList(props) {
 
     const options = {
         createdBy: user._id,
-        content: comments,
         postId: props.postId,
-        responseTo: props.commentId
+        content: comments
     };
         
         axios.post('/api/comments/comment', options)
             .then(res => {
                 if (res.data.success) {
-                    setComments(!comments);
+                    setComments('');
                     props.handleRefresh(res.data.results);
                 } else {
                     console.log('Error while saving to comment board.');
@@ -51,21 +49,17 @@ export default function CommentList(props) {
                 && props.commentList.map((comment, i) => (
                     (!comment.responseTo && 
                         <Fragment key={ i }>
-                            <Comments 
-                                commentId={ props.commentId } 
+                            <Comments
+                                comment={ comment }
+                                commentList={ props.commentList }
                                 postId={ props.postId } 
-                                handleRefresh={ props.handleRefresh } 
-                            />
-                            <CommentRatings 
-                                commentList={ props.commentList } 
-                                postId={ props.postId } 
-                                commentId={ props.commentId } 
+                                comment={ comment._id }
                                 handleRefresh={ props.handleRefresh } 
                             />
                         </Fragment>
                     )
                 ))
-            }.
+            }
 
             { props.commentList 
             && props.commentList.length === 0 && 

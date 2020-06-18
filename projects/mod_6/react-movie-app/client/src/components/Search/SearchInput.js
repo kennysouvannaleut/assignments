@@ -11,7 +11,7 @@ const SearchInput = props => {
 
     return (
         <form>
-            <label htmlFor='query'>Movie Name</label>
+            <label htmlFor='query'>MOVIE: </label>
             <input
                 type='text'
                 name='query'

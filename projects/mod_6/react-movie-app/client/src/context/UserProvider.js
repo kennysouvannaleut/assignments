@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { USER_SERVER } from '../utils/config'
 import UserContext from './userContext';
 import axios from 'axios';
 
@@ -13,7 +12,7 @@ export default function UserProvider({ children }) {
     const [userState, setUserState] = useState(initialState);
 
     const register = credentials => {
-        axios.post(`${USER_SERVER}/register`, credentials)
+        axios.post('api/users/register', credentials)
             .then(res => {
                 const { user, token } = res.data;
                 localStorage.setItem('user', JSON.stringify(user));
@@ -34,7 +33,7 @@ export default function UserProvider({ children }) {
     };
 
     const login = credentials => {
-        axios.post(`${USER_SERVER}/login`, credentials)
+        axios.post('api/users/login', credentials)
             .then(res => {
                 const { user, token } = res.data;
                 localStorage.setItem('user', JSON.stringify(user));

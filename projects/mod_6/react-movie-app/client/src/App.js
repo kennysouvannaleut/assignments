@@ -7,7 +7,7 @@ import Main from './components/layout/Main';
 import Footer from './components/layout/Footer';
 import Error from './components/Error';
 import ProtectedRoute from './components/ProtectedRoute';
-import Movie from './components/movie/Movie';
+import Movie from './components/pages/movie/Movie';
 import Home from './components/pages/home/Home';
 import Favorite from './components/pages/favorite/Favorite';
 

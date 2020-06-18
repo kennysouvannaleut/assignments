@@ -4,7 +4,7 @@ import { Typography } from 'antd';
 
 const { Title } = Typography;
 
-const MovieCard = ({ movie }) => (
+const Card = ({ movie }) => (
     <div className='card'>
         <img className='card-image'
             src={`${TMDB_IMAGE_URL}${IMAGE_DEFAULT_SIZE}${movie.poster_path}`}
@@ -24,4 +24,4 @@ const MovieCard = ({ movie }) => (
     </div>
 );
 
-export default MovieCard;
+export default Card;

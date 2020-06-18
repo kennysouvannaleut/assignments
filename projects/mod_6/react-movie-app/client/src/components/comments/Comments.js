@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import axios  from '../../utils'
+import axios  from '../../utils';
 import UserContext from '../../context/userContext';
 import CommentRatings from './CommentRatings';
 import { Avatar, Button, Comment, Input } from 'antd';
@@ -26,14 +26,15 @@ export default function Comments(props) {
     const options = {
         createdBy: user._id,
         postId: props.postId,
-        responseTo: props.commentId,
+        responseTo: props.userId,
         content: comments
     };
 
     axios.post('/api/comments/comment', options)
         .then(res => {
             if (res.data.success) {
-                setComments(comments, ...res.data.results);
+                setComments('');
+                setResponse(!response);
                 props.handleRefresh(res.data.results);
             } else {
                 console.log('Error while saving comment.');
@@ -42,7 +43,7 @@ export default function Comments(props) {
     };
  
     const actions = [
-        <CommentRatings
+        <CommentRatings comment
             commentId={ props.commentId }
             userId={ user._id } 
         />, 

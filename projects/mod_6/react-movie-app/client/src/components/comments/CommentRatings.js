@@ -28,8 +28,7 @@ export default function CommentRatings(props) {
             .then(res => {
                 if (res.data.success) {
                     setLikes(res.data.results.length);
-
-                  res.data.results.map(l => {
+                    res.data.results.map(l => {
                         if (l.userId === props.userId) {
                             setLikeAction('liked');
                         }
@@ -43,7 +42,6 @@ export default function CommentRatings(props) {
             .then(res => {
                 if (res.data.success) {
                     setDislikes(res.data.results.length);
-
                     res.data.results.map(d => {
                         if (d.userId === props.userId) {
                             setDislikeAction('disliked');
@@ -72,7 +70,6 @@ export default function CommentRatings(props) {
                 }
             })
         } else {
-
             axios.post('/api/ratings/like', options)
                 .then(res => {
                     if (res.data.success) {
@@ -87,7 +84,7 @@ export default function CommentRatings(props) {
 
     const dislike = () => {
         if (dislikeAction !== null) {
-            axios.post('/api/ratings/like', options)
+            axios.post('/api/ratings/dislike', options)
                 .then(res => {
                     if (res.data.success) {
                         setDislikes(dislikes - 1);
@@ -97,7 +94,6 @@ export default function CommentRatings(props) {
                     }
                 })
         } else {
-            
             axios.post('/api/ratings/dislike', options)
                 .then(res => {
                     if (res.data.success) {
@@ -121,7 +117,7 @@ export default function CommentRatings(props) {
                 <Tooltip title='Like'>
                     <LikeOutlined
                         type='like'
-                        theme={ likeAction === 'liked' ? LikeFilled : LikeOutlined }
+                        action={ likeAction === 'liked' ? LikeFilled : LikeOutlined }
                         onClick={ like }
                     />
                 </Tooltip>
@@ -131,12 +127,12 @@ export default function CommentRatings(props) {
                 <Tooltip title='Dislike'>
                     <DislikeOutlined
                         type='dislike'
-                        theme={ dislikeAction === 'disliked' ? DislikeFilled : DislikeOutlined }
+                        action={ dislikeAction === 'disliked' ? DislikeFilled : DislikeOutlined }
                         onClick={ dislike }
                     />
                 </Tooltip>
                 <span style={{ paddingLeft: '8px', cursor: 'auto' }}>{ dislikes }</span>
-            </span> 
+            </span>
         </Fragment>
     )
 };

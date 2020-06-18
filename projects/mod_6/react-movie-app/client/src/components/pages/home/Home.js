@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState, Fragment } from 'react';
 import { 
-    TMDB_API_KEY,
     TMDB_BASE_URL, 
     TMDB_IMAGE_URL, 
     POSTER_SIZE,
